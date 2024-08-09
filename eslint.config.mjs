@@ -22,12 +22,16 @@ const compat = new FlatCompat({
 export default [
   {
     ignores: [
-      '**/dist/',
-      '**/.eslintrc.cjs',
-      '**/eslint.config.mjs',
-      '**/node_modules/',
-      '**/build/',
-      '**/coverage/',
+      '**!/dist/',
+      '**!/.eslintrc.cjs',
+      '**!/eslint.config.mjs',
+      '**!/postcss.config.mjs',
+      '**!/prettier.config.mjs',
+      '**!/tailwind.config.mjs',
+      '**!/vite.config.mjs',
+      '**!/node_modules/',
+      '**!/build/',
+      '**!/coverage/',
     ],
   },
   ...compat.extends(
@@ -35,7 +39,7 @@ export default [
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:import/recommended',
+  /*  'plugin:import/recommended',*/
     'plugin:jsx-a11y/recommended',
     'eslint-config-prettier',
     'eslint-config-airbnb',
@@ -45,7 +49,7 @@ export default [
       'react-refresh': reactRefresh,
       'react-compiler': reactCompiler,
       'react-hooks': reactHooks,
-      import: importPlugin,
+      /*import: importPlugin,*/
       'jsx-a11y': jsxA11Y,
       react: react,
     },
@@ -61,7 +65,7 @@ export default [
       ],
       'react-compiler/react-compiler': 'error',
       'import/no-extraneous-dependencies': ['error', {
-        devDependencies: ['vite.config.js', 'vite.config.ts', '**/*.test.js', '**/*.spec.js']
+        devDependencies: ['vite.config.js', '**/*.test.js', '**/*.spec.js']
       }],
     },
   },
