@@ -10,5 +10,4 @@ function App() {
   );
 }
 
-jknkljn
 export default App;
