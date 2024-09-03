@@ -22,34 +22,33 @@ const compat = new FlatCompat({
 export default [
   {
     ignores: [
-      '**!/dist/',
-      '**!/.eslintrc.cjs',
-      '**!/eslint.config.mjs',
-      '**!/postcss.config.mjs',
-      '**!/prettier.config.mjs',
-      '**!/tailwind.config.mjs',
-      '**!/vite.config.mjs',
-      '**!/node_modules/',
-      '**!/build/',
-      '**!/coverage/',
+      'dist/',
+      'eslint.config.mjs',
+      'postcss.config.mjs',
+      'prettier.config.mjs',
+      'tailwind.config.mjs',
+      'commitlint.config.cjs',
+      'vite.config.mjs',
+      'node_modules/',
+      'coverage/',
     ],
   },
   ...compat.extends(
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
+    'eslint-config-standard',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-  /*  'plugin:import/recommended',*/
+    'plugin:import/recommended',
     'plugin:jsx-a11y/recommended',
     'eslint-config-prettier',
-    'eslint-config-airbnb',
+
   ),
   {
     plugins: {
       'react-refresh': reactRefresh,
       'react-compiler': reactCompiler,
       'react-hooks': reactHooks,
-      /*import: importPlugin,*/
+      import: importPlugin,
       'jsx-a11y': jsxA11Y,
       react: react,
     },
@@ -58,15 +57,24 @@ export default [
         ...globals.browser,
       },
     },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+    files: ['src/**/*.{js,jsx}'],
     rules: {
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
       'react-compiler/react-compiler': 'error',
-      'import/no-extraneous-dependencies': ['error', {
-        devDependencies: ['vite.config.js', '**/*.test.js', '**/*.spec.js']
-      }],
+      'import/no-extraneous-dependencies': [
+        'error',
+        {
+          devDependencies: ['vite.config.mjs', '**/*.test.js', '**/*.spec.js'],
+        },
+      ],
     },
   },
 ];
