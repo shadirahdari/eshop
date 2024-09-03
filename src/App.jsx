@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
+import Home from './pages/Home/index.jsx';
 
 function App() {
   return (
     <>
-      <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-        Purple
-      </h1>
+      <Home />
     </>
   );
 }
