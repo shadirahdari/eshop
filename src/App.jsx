@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './tailwind.css';
 import Home from './pages/Home/index.jsx';
 
 function App() {
