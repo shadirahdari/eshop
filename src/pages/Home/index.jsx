@@ -1,8 +1,8 @@
 import React from 'react';
-import { ProductCard } from '../../components/ProductCard/index.jsx';
+import LeadForm from '../../components/LeadForm/index.jsx';
 
 function HomePage() {
-  return <ProductCard />;
+  return <LeadForm />;
 }
 
 export default HomePage;
