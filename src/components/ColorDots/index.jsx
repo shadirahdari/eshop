@@ -1,6 +1,7 @@
-import "./style.css";
+import React from 'react';
+import './style.css';
 
-export const ColorDots = ({}) => {
+export const ColorDots = () => {
   return (
     <div className="es-colors">
       <div className="es-color es-color-1" />
