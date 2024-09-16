@@ -1,8 +1,7 @@
 export default {
   content: [
-    './src/**/*.jsx',
-    /* "./public/index.html", */
-  ],
+    './src/components/**/*.jsx',
+    './src/pages/**/*.jsx',  ],
   darkMode: 'media',
   theme: {
     extend: {
@@ -11,17 +10,13 @@ export default {
         'secondary-dark': '#29003E',
         'secondary-bright': '#6D02A3',
         'secondary-light': '#E4B6FB',
-        'text-success': '#02562B',
-        'text-error': '#980233',
+        'success': '#02562B',
+        'error': '#980233',
         'border-success': '#018842',
         'border-error': '#E4175C',
         'dropdown-menu': '#868685',
         'dropdown-menu-border': '#585757',
       },
-      borderWidth: {
-        DEFAULT: '1px',
-      }
-
     },
     fontFamily: {
       sans: [
@@ -35,6 +30,7 @@ export default {
         'Segoe UI Emoji',
         'Segoe UI Symbol',
       ],
+
     },
   },
   plugins: [],
