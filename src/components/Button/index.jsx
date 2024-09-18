@@ -3,9 +3,16 @@ import './style.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 
-export const Button = ({ size, color, type = 'button', children }) => {
+export const Button = ({
+  size,
+  color,
+  type = 'button',
+  className,
+  onClick,
+  children,
+}) => {
   const btnSizes = {
-    filter: 'w-40 md:w-32',
+    filter: 'w-full md:w-32',
     seeResults: 'w-36 md:w-5/12',
     mostPopular: 'w-40',
     order: 'w-36',
@@ -13,10 +20,10 @@ export const Button = ({ size, color, type = 'button', children }) => {
   };
 
   const btnColors = {
-    brightOutlined:
-      'border border-secondary-bright text-secondary-bright hover:bg-secondary-light ',
-    regular: 'text-white bg-main-regular text-white hover:border-main-regular ',
-    dark: 'text-white font-medium bg-secondary-dark hover:scale-105',
+    brightOutlined: `${className}  border border-secondary-bright text-secondary-bright hover:bg-secondary-light `,
+    regular:
+      'py-4 text-white bg-main-regular text-white hover:border-main-regular ',
+    dark: 'py-4 text-white font-medium bg-secondary-dark hover:scale-105',
     darkOutlined:
       'border border-secondary-dark text-secondary-dark font-medium hover:border-secondary-light',
   };
@@ -25,8 +32,9 @@ export const Button = ({ size, color, type = 'button', children }) => {
 
   return (
     <button
-      className={`button px-6 py-4 font-medium text-base ${btnSizeClasses} ${btnColorClasses}`}
-      type={type}>
+      className={`button font-medium text-base ${btnSizeClasses} ${btnColorClasses}`}
+      type={type}
+      onClick={onClick}>
       {children}
     </button>
   );
@@ -37,4 +45,6 @@ Button.propTypes = {
   type: PropTypes.string,
   color: PropTypes.string,
   children: PropTypes.string,
+  onClick: PropTypes.func,
+  className: PropTypes.string,
 };

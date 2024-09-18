@@ -12,7 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Button } from '../Button/index.jsx';
 
-const LeadForm = () => {
+function LeadForm() {
   // Validation schema using Yup
   const validationSchema = Yup.object({
     name: Yup.string().required('Fill in the required field'),
@@ -23,7 +23,7 @@ const LeadForm = () => {
   });
 
   return (
-    <div className="flex justify-center min-h-screen">
+    <div className="container flex justify-center min-h-screen">
       <div className="p-3 w-full lg:max-w-4xl flex flex-col lg:flex-row">
         <div
           className="hidden lg:block bg-cover bg-no-repeat w-72 h-full"
@@ -125,6 +125,6 @@ const LeadForm = () => {
       </div>
     </div>
   );
-};
+}
 
 export default LeadForm;

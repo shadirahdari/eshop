@@ -1,21 +1,40 @@
 export default {
-  content: [
-    './src/components/**/*.jsx',
-    './src/pages/**/*.jsx',  ],
+  content: ['./src/components/**/*.jsx', './src/pages/**/*.jsx'],
   darkMode: 'media',
   theme: {
     extend: {
       colors: {
-        'main': '#4E0174',
+        main: '#4E0174',
         'secondary-dark': '#29003E',
         'secondary-bright': '#6D02A3',
         'secondary-light': '#E4B6FB',
-        'success': '#02562B',
-        'error': '#980233',
+        success: '#02562B',
+        error: '#980233',
         'border-success': '#018842',
         'border-error': '#E4175C',
-        'dropdown-menu': '#868685',
-        'dropdown-menu-border': '#585757',
+        'dropdown-main': '#868685',
+        'dropdown-header': '#464847',
+        'dropdown-border': '#585757',
+        'dropdown-gradient-1': '#7A7A7A',
+        'dropdown-gradient-2': '#4A4A4A',
+        'dropdown-option-selected': '#707071',
+      },
+      backgroundImage: {
+        sort: "url('src/assets/images/sorter.svg')",
+        filter: "url('src/assets/images/filter.svg')",
+      },
+      backgroundPosition: {
+        'sort-pos': '1.25rem 0.825rem',
+        close: '-54px -74px',
+        'filter-pos': '1.725rem 0.825rem',
+        'filter-pos-md': '1rem 0.5rem',
+        checkbox_1: '-10px -10px',
+        radio: '-54px -10px',
+        radio_selected: '-98px -10px',
+        error_input: '-142px -10px',
+        checkbox_circle: '-142px -54px',
+        checkbox_2: '-10px -74px',
+        arrow: '-10px -138px',
       },
     },
     fontFamily: {
@@ -30,7 +49,6 @@ export default {
         'Segoe UI Emoji',
         'Segoe UI Symbol',
       ],
-
     },
   },
   plugins: [],
