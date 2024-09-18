@@ -58,6 +58,11 @@ export default [
       },
     },
     settings: {
+      'import/resolver': {
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx'], // Add extensions based on your project
+        },
+      },
       react: {
         version: 'detect',
       },
