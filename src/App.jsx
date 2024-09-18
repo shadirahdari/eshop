@@ -1,12 +1,14 @@
 import React from 'react';
-import './App.css';
+import './tailwind.css';
 import Home from './pages/Home/index.jsx';
+import Header from './components/Header/index.jsx';
 
 function App() {
   return (
-    <>
+    <div className="min-h-screen">
+      <Header />
       <Home />
-    </>
+    </div>
   );
 }
 

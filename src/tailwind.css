@@ -1,0 +1,108 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/*
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+*/
+
+/*@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}*/
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .button {
+    @apply rounded-full ease-in-out;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Helvetica Neue Thin';
+    src:
+      url('assets/fonts/HelveticaNeue.woff2') format('font/woff2'),
+      url('assets/fonts/HelveticaNeue.woff') format('font/woff');
+    unicode-range: U+0020-007F, U+00A0-00FF, U+2010-2015, U+2018-2019,
+      U+201C-201D, U+2026;
+    font-display: swap;
+  }
+
+  /*  @font-face {
+    font-family: 'Helvetica Neue Bold';
+    src: url('assets/fonts/HelveticaNeueBold.woff2') format('woff2');
+    unicode-range: U+0020-007F, U+00A0-00FF, U+2010-2015, U+2018-2019,
+      U+201C-201D, U+2026;
+    font-display: swap;
+  }*/
+  html {
+    font-size-adjust: 0.522;
+  }
+}
+
+/*
+
+
+x
+.bg-filter__1_ {
+  width: 16px; height: 16px;
+  background: url('css_sprites.png') -142px -98px;
+}
+
+x
+.bg-sorter__1_ {
+  width: 16px; height: 16px;
+  background: url('css_sprites.png') -106px -74px;
+}
+
+x
+.bg-Checkbox__1_ {
+  width: 24px; height: 44px;
+  background: url('css_sprites.png') -10px -10px;
+}
+
+x
+.bg-Radio__1_ {
+  width: 24px; height: 44px;
+  background: url('css_sprites.png') -54px -10px;
+}
+
+x
+.bg-Selected_radio_button {
+  width: 24px; height: 44px;
+  background: url('css_sprites.png') -98px -10px;
+}
+
+x
+.bg-error_filled {
+  width: 24px; height: 24px;
+  background: url('css_sprites.png') -142px -10px;
+}
+
+x
+.bg-check_circle_filled {
+  width: 24px; height: 24px;
+  background: url('css_sprites.png') -142px -54px;
+}
+
+x
+.bg-Checkbox__2_ {
+  width: 24px; height: 44px;
+  background: url('css_sprites.png') -10px -74px;
+}
+
+x
+.bg-arrow_right {
+  width: 16px; height: 16px;
+  background: url('css_sprites.png') -10px -138px;
+}*/
