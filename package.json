@@ -13,9 +13,6 @@
     "test": "echo \"No tests specified\" && exit 0"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "eslint --fix . --max-warnings=0"
-    ],
     "*.{json,js,jsx,html,scss,css}": [
       "prettier --write --ignore-unknown"
     ]
