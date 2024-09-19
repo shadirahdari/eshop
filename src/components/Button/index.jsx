@@ -32,7 +32,7 @@ export const Button = ({
 
   return (
     <button
-      className={`button font-bold font-medium text-base ${btnSizeClasses} ${btnColorClasses}`}
+      className={`button font-medium text-base ${btnSizeClasses} ${btnColorClasses}`}
       type={type}
       onClick={onClick}>
       {children}

@@ -4,6 +4,7 @@ import bannerTablet from '../../assets/images/hero_banner_tablet.png';
 import bannerDesktop from '../../assets/images/hero_banner.png';
 import SortBy from '../../components/SortBy/index.jsx';
 import Filters from '../../components/Filters/index.jsx';
+import LeadForm from '../../components/LeadForm/index.jsx';
 
 function HomePage() {
   return (
@@ -37,6 +38,7 @@ function HomePage() {
             <Filters />
             <SortBy />
           </div>
+          <LeadForm />
         </div>
       </div>
     </main>
