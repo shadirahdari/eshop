@@ -2,8 +2,8 @@ import React from 'react';
 import bannerMobile from '../../assets/images/hero_banner_mobile.png';
 import bannerTablet from '../../assets/images/hero_banner_tablet.png';
 import bannerDesktop from '../../assets/images/hero_banner.png';
-import { Button } from '../../components/Button/index.jsx';
-import Select from '../../components/Select/index.jsx';
+import SortBy from '../../components/SortBy/index.jsx';
+import Filters from '../../components/Filters/index.jsx';
 
 function HomePage() {
   return (
@@ -33,17 +33,9 @@ function HomePage() {
               scelerisque faucibs.
             </p>
           </div>
-          <div className="flex md:justify-start gap-x-5 mt-12">
-            <Button color="brightOutlined" size="filter" className="py-2">
-              <p className="px-4 relative bg-no-repeat bg-filter-pos md:bg-filter-pos-md">
-                Filter by
-              </p>
-            </Button>
-            {/*  <Button
-              color="brightOutlined"
-              size="mostPopular"
-              className="pl-9 pr-1.5 bg-sort relative bg-no-repeat bg-sort-pos"> */}
-            <Select />
+          <div className="flex justify-between md:justify-start  gap-x-5 mt-12">
+            <Filters />
+            <SortBy />
           </div>
         </div>
       </div>

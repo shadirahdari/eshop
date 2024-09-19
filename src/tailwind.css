@@ -2,6 +2,32 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@font-face {
+  font-family: 'Helvetica Neue Bold';
+  src: url('assets/fonts/HelveticaNeueCyr-Medium.eot') format('eot');
+  src: url('assets/fonts/HelveticaNeueCyr-Medium.woff2') format('woff2');
+  unicode-range: U+0020-007F, U+00A0-00FF, U+2010-2015, U+2018-2019, U+201C-201D,
+    U+2026;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Helvetica Neue Light';
+  src: url('assets/fonts/HelveticaLight.eot') format('eot');
+  src: url('assets/fonts/HelveticaNeueLight.woff2') format('woff2');
+  unicode-range: U+0020-007F, U+00A0-00FF, U+2010-2015, U+2018-2019, U+201C-201D,
+    U+2026;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('assets/fonts/HelveticaNeueCyr-Roman.eot') format('eot');
+  src: url('assets/fonts/HelveticaNeueCyr-Roman.woff2') format('woff2');
+  unicode-range: U+0020-007F, U+00A0-00FF, U+2010-2015, U+2018-2019, U+201C-201D,
+    U+2026;
+  font-display: swap;
+}
+
 /*
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -28,23 +54,6 @@
 }
 
 @layer base {
-  @font-face {
-    font-family: 'Helvetica Neue Thin';
-    src:
-      url('assets/fonts/HelveticaNeue.woff2') format('font/woff2'),
-      url('assets/fonts/HelveticaNeue.woff') format('font/woff');
-    unicode-range: U+0020-007F, U+00A0-00FF, U+2010-2015, U+2018-2019,
-      U+201C-201D, U+2026;
-    font-display: swap;
-  }
-
-  /*  @font-face {
-    font-family: 'Helvetica Neue Bold';
-    src: url('assets/fonts/HelveticaNeueBold.woff2') format('woff2');
-    unicode-range: U+0020-007F, U+00A0-00FF, U+2010-2015, U+2018-2019,
-      U+201C-201D, U+2026;
-    font-display: swap;
-  }*/
   html {
     font-size-adjust: 0.522;
   }

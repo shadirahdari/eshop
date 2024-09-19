@@ -23,7 +23,7 @@ export const Button = ({
     brightOutlined: `${className}  border border-secondary-bright text-secondary-bright hover:bg-secondary-light `,
     regular:
       'py-4 text-white bg-main-regular text-white hover:border-main-regular ',
-    dark: 'py-4 text-white font-medium bg-secondary-dark hover:scale-105',
+    dark: 'py-4 text-white bg-secondary-dark hover:scale-105',
     darkOutlined:
       'border border-secondary-dark text-secondary-dark font-medium hover:border-secondary-light',
   };
@@ -32,7 +32,7 @@ export const Button = ({
 
   return (
     <button
-      className={`button font-medium text-base ${btnSizeClasses} ${btnColorClasses}`}
+      className={`button font-bold font-medium text-base ${btnSizeClasses} ${btnColorClasses}`}
       type={type}
       onClick={onClick}>
       {children}
@@ -44,7 +44,7 @@ Button.propTypes = {
   size: PropTypes.string,
   type: PropTypes.string,
   color: PropTypes.string,
-  children: PropTypes.string,
+  children: PropTypes.object,
   onClick: PropTypes.func,
   className: PropTypes.string,
 };
