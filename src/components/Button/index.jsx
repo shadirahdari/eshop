@@ -34,7 +34,6 @@ export const Button = ({
     <button
       className={`button font-medium text-base ${btnSizeClasses} ${btnColorClasses} focus:border-2` }
       type={type}
-      role="button"
       onClick={onClick}>
       {children}
     </button>

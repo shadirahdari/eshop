@@ -7,7 +7,6 @@ import formBackground from '../../assets/images/form_background.png';
 // eslint-disable-next-line import/namespace
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faTriangleExclamation,
   faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { useClickOutside } from '../../hooks/useClickOutside.jsx';
