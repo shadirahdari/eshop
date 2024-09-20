@@ -26,6 +26,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "autoprefixer": "^10.4.19",
+    "axios": "^1.7.7",
     "formik": "^2.4.6",
     "postcss": "^8.4.40",
     "prop-types": "^15.8.1",
@@ -35,6 +36,7 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.25.1",
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@eslint/compat": "^1.1.1",
@@ -46,7 +48,7 @@
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.9.0",
-    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react": "^7.36.1",
     "eslint-plugin-react-compiler": "^0.0.0-experimental-9ed098e-20240725",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",

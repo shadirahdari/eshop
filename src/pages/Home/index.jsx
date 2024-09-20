@@ -4,16 +4,18 @@ import bannerTablet from '../../assets/images/hero_banner_tablet.png';
 import bannerDesktop from '../../assets/images/hero_banner.png';
 import SortBy from '../../components/SortBy/index.jsx';
 import Filters from '../../components/Filters/index.jsx';
+import { LeadForm } from '../../components/LeadForm/index.jsx';
+import { ProductsList } from '../../components/ProductsList/index.jsx';
 
-function HomePage() {
+ function HomePage() {
   return (
     <main>
       <div>
         <div>
           <picture>
-            <source srcSet={bannerDesktop} media="(min-width: 1440px)" />
-            <source srcSet={bannerTablet} media="(min-width: 768px)" />
-            <source srcSet={bannerMobile} media="(max-width: 767px)" />
+            <source srcSet={bannerDesktop} media="(min-width: 1440px)"/>
+            <source srcSet={bannerTablet} media="(min-width: 768px)"/>
+            <source srcSet={bannerMobile} media="(max-width: 767px)"/>
             <img
               src={bannerMobile}
               alt="screen of a mobile phone with a purple background"
@@ -34,11 +36,13 @@ function HomePage() {
             </p>
           </div>
           <div className="flex justify-between md:justify-start  gap-x-5 mt-12">
-            <Filters />
-            <SortBy />
+            <Filters/>
+            <SortBy/>
           </div>
+          <LeadForm/>
         </div>
       </div>
+      <ProductsList/>
     </main>
   );
 }
