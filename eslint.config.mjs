@@ -61,6 +61,11 @@ export default [
       },
     },
     settings: {
+      'import/resolver': {
+        node: {
+          extensions: ['.js', '.jsx'],
+        },
+      },
       react: {
         version: 'detect',
       },
