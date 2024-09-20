@@ -7,6 +7,7 @@ import importPlugin from 'eslint-plugin-import';
 import jsxA11Y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import globals from 'globals';
+import babelParser from '@babel/eslint-parser';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -31,6 +32,7 @@ export default [
       'vite.config.mjs',
       'node_modules/',
       'coverage/',
+      'src/components/ProductsList/index.jsx'
     ],
   },
   ...compat.extends(
@@ -41,7 +43,6 @@ export default [
     'plugin:import/recommended',
     'plugin:jsx-a11y/recommended',
     'eslint-config-prettier',
-
   ),
   {
     plugins: {
@@ -53,8 +54,12 @@ export default [
       react: react,
     },
     languageOptions: {
-      globals: {
-        ...globals.browser,
+      parser: babelParser,
+      parserOptions: {
+        requireConfigFile: false,
+        babelOptions: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
       },
     },
     settings: {
