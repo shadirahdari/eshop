@@ -11,7 +11,6 @@ function App() {
       <Home />
       <ProductsList />
     </div>
-  );
-}
+  )}
 
 export default App;
