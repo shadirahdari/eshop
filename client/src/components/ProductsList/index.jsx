@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { ProductCard } from '../ProductCard';
-import { get } from 'axios';
+import { ProductCard } from '../ProductCard/index.jsx';
+import get from 'axios';
 
 export const ProductsList = () => {
   const [products, setProducts] = useState([]);
@@ -14,7 +14,7 @@ export const ProductsList = () => {
         setLoading(false);
       })
       .catch((err) => {
-        setError('err.message');
+        setError(err.message);
         setLoading(false);
       });
   }, []);
