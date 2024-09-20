@@ -45,7 +45,6 @@ function SortBy() {
         aria-expanded="true"
         aria-haspopup="true"
         aria-label="Place your order"
-        role="button"
         onClick={() => handleClick()}>
         {selectedOption}
       </button>

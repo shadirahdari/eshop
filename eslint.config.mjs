@@ -6,7 +6,6 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11Y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
-import globals from 'globals';
 import babelParser from '@babel/eslint-parser';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
