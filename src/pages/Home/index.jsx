@@ -4,7 +4,8 @@ import bannerTablet from '../../assets/images/hero_banner_tablet.png';
 import bannerDesktop from '../../assets/images/hero_banner.png';
 import SortBy from '../../components/SortBy/index.jsx';
 import Filters from '../../components/Filters/index.jsx';
-import LeadForm from '../../components/LeadForm/index.jsx';
+import { LeadForm } from '../../components/LeadForm/index.jsx';
+import { ProductsList } from '../../components/ProductsList/index.jsx';
 
  function HomePage() {
   return (
@@ -41,6 +42,7 @@ import LeadForm from '../../components/LeadForm/index.jsx';
           <LeadForm/>
         </div>
       </div>
+      <ProductsList/>
     </main>
   );
 }

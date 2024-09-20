@@ -40,10 +40,12 @@ function SortBy() {
     <div className="w-full relative">
       <button
         type="button"
-        className="py-2 px-4 w-full md:w-auto font-bold font-medium text-nowrap button bg-sort  bg-no-repeat bg-sort-pos border border-secondary-bright text-secondary-bright hover:bg-secondary-light "
+        className="py-2 px-4 w-full md:w-auto font-bold font-medium text-nowrap button bg-sort  bg-no-repeat bg-sort-pos border border-secondary-bright text-secondary-bright hover:bg-secondary-light focus:bg-secondary-light"
         id="menu-button"
         aria-expanded="true"
         aria-haspopup="true"
+        aria-label="Place your order"
+        role="button"
         onClick={() => handleClick()}>
         {selectedOption}
       </button>
