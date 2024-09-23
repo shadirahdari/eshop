@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {  useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import '../../assets/svg/icons.svg';
+import icons from '../../assets/svg/icons.svg';
+import { useClickOutside } from '../../hooks/useClickOutside.jsx';
+
 
 function SortBy() {
   const [selectedOption, setSelectedOption] = useState('Most popular');
@@ -20,36 +22,37 @@ function SortBy() {
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setIsOpen(false);
-      console.log(isOpen);
+
+  useClickOutside(dropdownRef, () => setIsOpen(false));
+  const handleChevronDown = () => {
+    const currentIndex = options.findIndex((option) => option.label === selectedOption);
+    if (currentIndex < options.length - 1) {
+      setSelectedOption(options[currentIndex + 1].label);
     }
   };
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('touchstart', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
-    };
-  });
+  const handleChevronUp = () => {
+    const currentIndex = options.findIndex((option) => option.label === selectedOption);
+    if (currentIndex > 0) {
+      setSelectedOption(options[currentIndex - 1].label);
+    }
+  };
 
   return (
     <div className="w-full relative">
       <button
         type="button"
-        className="py-2 px-4 w-full md:w-auto font-bold font-medium text-nowrap button bg-sort  bg-no-repeat bg-sort-pos border border-secondary-bright text-secondary-bright hover:bg-secondary-light focus:bg-secondary-light"
+        className="py-2 px-2 flex justify-center items-center gap-1.5 w-full md:w-auto font-bold font-medium text-nowrap button bg-sort  bg-no-repeat bg-sort-pos border border-secondary-bright text-secondary-bright hover:bg-secondary-light focus:bg-secondary-light"
         id="menu-button"
         aria-expanded="true"
         aria-haspopup="true"
         aria-label="Place your order"
         onClick={() => handleClick()}>
+        <svg className="sorter-icon h-4 w-4">
+          <use href={icons + '#sorter'}/>
+        </svg>
         {selectedOption}
       </button>
-
-      {/* Dropdown */}
       {isOpen && (
         <div
           className={`font-popup fixed md:absolute inset-x-0 bottom-0  md:-bottom-2 md:translate-y-full mt-2 w-screen md:w-72 focus:outline-none cursor-pointer`}
@@ -60,14 +63,14 @@ function SortBy() {
           ref={dropdownRef}>
           <div className="flex justify-between h-9 bg-dropdown-header px-4 md:hidden">
             <div className="flex gap-4">
-              <button className="bg-amber-200">
-                <svg width="24" height="24" fill="white" aria-hidden="true">
-                  <use href="#checkbox" />
+              <button onClick={()=> handleChevronDown() }>
+                <svg className="h-5 w-5" aria-hidden="true">
+                  <use href={icons +"#chevron-down"} />
                 </svg>
               </button>
-              <button className="bg-amber-200">
-                <svg width="24" height="24">
-                  <use href="#chevron-up" />
+              <button onClick={() => handleChevronUp ()}>
+                <svg className="h-5 w-5" aria-hidden="true">
+                  <use href={icons + '#chevron-up'}/>
                 </svg>
               </button>
             </div>
