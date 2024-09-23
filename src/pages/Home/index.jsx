@@ -6,8 +6,14 @@ import SortBy from '../../components/SortBy/index.jsx';
 import Filters from '../../components/Filters/index.jsx';
 import { LeadForm } from '../../components/LeadForm/index.jsx';
 import { ProductsList } from '../../components/ProductsList/index.jsx';
+// eslint-disable-next-line import/namespace,import/no-extraneous-dependencies
+import { useDispatch } from 'react-redux';
 
  function HomePage() {
+   const dispatch = useDispatch();
+   const toggleModal= () => {
+     dispatch({type:'toggleModal'});
+   }
   return (
     <main>
       <div>
@@ -40,11 +46,17 @@ import { ProductsList } from '../../components/ProductsList/index.jsx';
             <SortBy/>
           </div>
           <LeadForm/>
+          <button
+            aria-label="Close form"
+            className="button text-3xl relative -top-3 md:static lg:relative lg:-top-4 hover:scale-125"
+            onClick={() => toggleModal()}>
+            Open
+          </button>
         </div>
       </div>
       <ProductsList/>
     </main>
   );
-}
+ }
 
 export default HomePage;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ProductCard } from '../ProductCard/index.jsx';
-// eslint-disable-next-line import/namespace,import/default,import/no-named-as-default,import/no-extraneous-dependencies,import/no-named-as-default-member
+// eslint-disable-next-line import/namespace,import/default,import/no-named-as-default,import/no-named-as-default-member
 import get from 'axios';
 
 export const ProductsList = () => {

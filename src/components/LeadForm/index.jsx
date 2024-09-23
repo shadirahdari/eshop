@@ -1,4 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef} from 'react';
+// eslint-disable-next-line import/namespace,import/no-extraneous-dependencies
+import { useDispatch, useSelector } from 'react-redux';
 // eslint-disable-next-line import/namespace
 import { Formik, Form} from 'formik';
 // eslint-disable-next-line import/namespace
@@ -12,10 +14,17 @@ import {
 import { useClickOutside } from '../../hooks/useClickOutside.jsx';
 import TextInput from '../Input/index.jsx';
 import { Button } from '../Button/index.jsx';
+// eslint-disable-next-line import/namespace
+import { modalOrderActions } from '../../modalOrderSlice.js';
 
 
 export function LeadForm() {
-  const [isOpen, setIsOpen] = useState(true);
+  const isModalOpen = useSelector(state => state.isModalOpen)
+  const dispatch = useDispatch();
+  const toggleModal = () => {
+    dispatch(modalOrderActions.toggleModal());
+  }
+
   const dropdownRef = useRef(null);
 
   const validationSchema = object({
@@ -31,14 +40,11 @@ export function LeadForm() {
       .required('Fill in the required field'),
   });
 
-  useClickOutside(dropdownRef, () => setIsOpen(false));
-  const handleClick = () => {
-    setIsOpen(false);
-  };
+  useClickOutside(dropdownRef, () => toggleModal());
 
   return (
     <>
-      {isOpen && (
+      {isModalOpen && (
         <div
           ref={dropdownRef}
           className="container flex justify-center min-h-screen">
@@ -56,7 +62,7 @@ export function LeadForm() {
                   <button
                     aria-label="Close form"
                     className="button text-3xl relative -top-3 md:static lg:relative lg:-top-4 hover:scale-125"
-                    onClick={() => handleClick()}>
+                    onClick={() => toggleModal()}>
                     <FontAwesomeIcon icon={faXmark}/>
                   </button>
                 </div>
@@ -83,7 +89,7 @@ export function LeadForm() {
                       <TextInput label="Name and Surname" name="name" placeholder="Enter your name" id="name" />
                       <TextInput label="Email address" name="email" placeholder="Enter your email" id="email" />
                       <TextInput label="Phone number" name="phone" placeholder="Enter your phone" id="phone" />
-                      <Button type="submit" color={'dark'} size={'form'} aria-label="Place your order">
+                      <Button type="submit" color={'dark'} size={'form'} aria-label="Place your order" onClick={() => toggleModal()}>
                         Place an order
                       </Button>
                     </Form>
