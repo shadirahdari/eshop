@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.css';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 
 export const Button = ({
@@ -16,14 +15,14 @@ export const Button = ({
     seeResults: 'w-36 md:w-5/12',
     mostPopular: 'w-40',
     order: 'w-36',
-    form: 'w-full lg:w-40',
+    form: 'w-full lg:w-40 lg:mt-8',
   };
 
   const btnColors = {
     brightOutlined: `${className}  border border-secondary-bright text-secondary-bright hover:bg-secondary-light  focus:bg-secondary-light`,
     regular:
-      'py-4 text-white bg-main-regular text-white hover:border-main-regular ',
-    dark: 'py-4 text-white bg-secondary-dark hover:scale-105 border-secondary-dark',
+      ` ${className} py-4 text-white bg-main hover:border-main-regular `,
+    dark: 'py-4 text-white bg-secondary-dark hover:scale-[1.02] border-secondary-dark',
     darkOutlined:
       'border border-secondary-dark text-secondary-dark font-medium hover:border-secondary-light',
   };
@@ -32,7 +31,7 @@ export const Button = ({
 
   return (
     <button
-      className={`button font-medium text-base ${btnSizeClasses} ${btnColorClasses} focus:border-2` }
+      className={`button font-medium text-base ${btnSizeClasses} ${btnColorClasses} focus:border-1` }
       type={type}
       onClick={onClick}>
       {children}
@@ -44,7 +43,7 @@ Button.propTypes = {
   size: PropTypes.string,
   type: PropTypes.string,
   color: PropTypes.string,
-  children: PropTypes.object,
+  children: PropTypes.node,
   onClick: PropTypes.func,
   className: PropTypes.string,
 };

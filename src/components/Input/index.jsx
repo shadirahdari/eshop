@@ -1,6 +1,4 @@
-// eslint-disable-next-line import/namespace
 import { ErrorMessage, Field } from 'formik';
-// eslint-disable-next-line import/namespace
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
