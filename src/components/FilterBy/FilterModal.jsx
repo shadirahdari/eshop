@@ -5,7 +5,7 @@ import { filterReducer, initialState } from './filterReducer.jsx';
 import { FilterGroups } from "./FliterGroup.jsx"
 import { Button } from '../Button/index.jsx';
 
-const FilterModal = ({ show, close }) => {
+const FilterModal = ({ show, close, update }) => {
   const [state, dispatch] = useReducer(filterReducer, initialState);
 
   // Define validation schema with Yup
@@ -53,12 +53,16 @@ const FilterModal = ({ show, close }) => {
 
           </div>
           <div className=' p-6 flex'>
-          <Button color="brightOutlined" size="filter" onClick={close} className="w-full">
+            <Button color="brightOutlined" size="filter" onClick={close} className="w-full mr-3">
               Close
             </Button>
-            <Button color="brightOutlined" size="filter" className="w-full mr-2">
-            See result</Button>
-            
+            <Button color="brightOutlined" size="filter" onClick={() => {
+              close()
+              update(formik.values)
+            }} className="w-full mr-2">
+              See results
+            </Button>
+
           </div>
         </form>
       </div>
