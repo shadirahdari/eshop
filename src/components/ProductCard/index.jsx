@@ -13,6 +13,10 @@ import icons from '../../assets/svg/icons.svg';
 
 export const ProductCard = ({ product }) => {
   const {openModal} = useContext(ModalContext);
+  const imageUrl = (productImg) => {
+    return `https://res.cloudinary.com/dewhrjfex/image/upload/${productImg}`;
+  }
+
   return (
     <div className="es-product-card">
       <div className="es-product-card-main">
