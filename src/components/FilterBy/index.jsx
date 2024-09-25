@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Button } from '../Button/index.jsx';
 import FilterModal from './FilterModal.jsx';
+import icons from '../../assets/svg/icons.svg';
 
 function FilterBy() {
   const [show_filters, set_show_filters] = useState(false)
 
   return (
     <>
-      <Button color="brightOutlined" size="filter" className="py-2" onClick={() => set_show_filters(true)}>
-        <p className="px-4 relative bg-no-repeat bg-filter-pos md:bg-filter-pos-md">
-          Filter by
-        </p>
-      </Button>
+  <Button color="brightOutlined" size="filter" className="py-2 flex justify-center items-center gap-1.5" >
+      <svg className="filter-icon h-4 w-4" aria-hidden="true">
+        <use href={icons + '#filter'}/>
+      </svg>
+      <span>Filter by</span>
+    </Button>
 
       <FilterModal show={show_filters} close={() => set_show_filters(false)} />
     </>

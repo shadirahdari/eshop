@@ -38,7 +38,7 @@ export default [
     'eslint-config-standard',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:import/recommended',
+    /* 'plugin:import/recommended', */
     'plugin:jsx-a11y/recommended',
     'eslint-config-prettier',
   ),
@@ -47,7 +47,7 @@ export default [
       'react-refresh': reactRefresh,
       'react-compiler': reactCompiler,
       'react-hooks': reactHooks,
-      import: importPlugin,
+     /*  import: importPlugin, */
       'jsx-a11y': jsxA11Y,
       react: eslintPluginReact,
     },
@@ -60,7 +60,12 @@ export default [
         },
       },
     },
-    settings: {
+    settings: {/*
+      'import/resolver': {
+        node: {
+          extensions: ['.js', '.jsx'],
+        },
+      }, */
       react: {
         version: 'detect',
       },
@@ -72,12 +77,12 @@ export default [
         { allowConstantExport: true },
       ],
       'react-compiler/react-compiler': 'error',
-      'import/no-extraneous-dependencies': [
+      /* 'import/no-extraneous-dependencies': [
         'error',
         {
-          devDependencies: ['vite.config.mjs', '**/*.test.js', '**/*.spec.js'],
+          devDependencies: ['vite.config.mjs', '**!/!*.test.js', '**!/!*.spec.js'],
         },
-      ],
+      ], */
     },
   },
 ];

@@ -6,10 +6,15 @@ import SortBy from '../../components/SortBy/index.jsx';
 import FilterBy from '../../components/FilterBy';
 import { LeadForm } from '../../components/LeadForm/index.jsx';
 import { ProductsList } from '../../components/ProductsList/index.jsx';
+import { ModalProvider } from '../../store/modal-context.jsx';
+import { ModalOrder } from '../../components/LeadForm/index.jsx';
+
 
 function HomePage() {
   return (
+    <ModalProvider>
     <main>
+      <ModalOrder/>
       <div>
         <div>
           <picture>
@@ -44,6 +49,7 @@ function HomePage() {
       </div>
       <ProductsList />
     </main>
+    </ModalProvider>
   );
 }
 

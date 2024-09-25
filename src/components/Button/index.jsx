@@ -28,7 +28,6 @@ export const Button = ({
   children,
   className = ""
 }) => {
-
   const btnSizeClasses = btnSizes[size];
   const btnColorClasses = btnColors[color];
 
@@ -46,7 +45,7 @@ Button.propTypes = {
   size: PropTypes.string,
   type: PropTypes.string,
   color: PropTypes.string,
-  children: PropTypes.object,
+  children: PropTypes.node,
   onClick: PropTypes.func,
   className: PropTypes.string,
 };
