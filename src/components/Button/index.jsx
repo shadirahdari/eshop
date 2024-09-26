@@ -2,13 +2,15 @@ import React from 'react';
 import './style.css';
 import PropTypes from 'prop-types';
 
+
+
 export const Button = ({
   size,
-  color,
+  color = "brightOutlined",
   type = 'button',
-  className,
   onClick,
   children,
+  className = ""
 }) => {
   const btnSizes = {
     filter: 'w-full md:w-32',
@@ -47,3 +49,5 @@ Button.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
 };
+
+
