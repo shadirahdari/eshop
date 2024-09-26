@@ -2,15 +2,7 @@ import React from 'react';
 import './style.css';
 import PropTypes from 'prop-types';
 
-export const Button = ({
-  size,
-  color,
-  type = 'button',
-  className,
-  onClick,
-  children,
-}) => {
-  const btnSizes = {
+const btnSizes = {
     filter: 'w-full md:w-32',
     seeResults: 'w-36 md:w-5/12',
     mostPopular: 'w-40',
@@ -26,6 +18,14 @@ export const Button = ({
     darkOutlined:
       'border border-secondary-dark text-secondary-dark font-medium hover:border-secondary-light',
   };
+export const Button = ({
+  size,
+  color = "brightOutlined",
+  type = 'button',
+  onClick,
+  children,
+  className = ""
+}) => {
   const btnSizeClasses = btnSizes[size];
   const btnColorClasses = btnColors[color];
 
@@ -47,3 +47,5 @@ Button.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
 };
+
+

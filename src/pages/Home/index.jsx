@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import bannerMobile from '../../assets/images/hero_banner_mobile.png';
 import bannerTablet from '../../assets/images/hero_banner_tablet.png';
 import bannerDesktop from '../../assets/images/hero_banner.png';
@@ -7,9 +7,9 @@ import Filters from '../../components/Filters/index.jsx';
 import { ProductsList } from '../../components/ProductsList/index.jsx';
 import { ModalProvider } from '../../store/modal-context.jsx';
 import { ModalOrder } from '../../components/LeadForm/index.jsx';
+import FilterBy from '../../components/FilterBy';
 
-
- function HomePage() {
+function HomePage() {
   return (
     <ModalProvider>
     <main>
@@ -17,9 +17,9 @@ import { ModalOrder } from '../../components/LeadForm/index.jsx';
       <div>
         <div>
           <picture>
-            <source srcSet={bannerDesktop} media="(min-width: 1440px)"/>
-            <source srcSet={bannerTablet} media="(min-width: 768px)"/>
-            <source srcSet={bannerMobile} media="(max-width: 767px)"/>
+            <source srcSet={bannerDesktop} media="(min-width: 1440px)" />
+            <source srcSet={bannerTablet} media="(min-width: 768px)" />
+            <source srcSet={bannerMobile} media="(max-width: 767px)" />
             <img
               src={bannerMobile}
               alt="screen of a mobile phone with a purple background"
@@ -40,12 +40,12 @@ import { ModalOrder } from '../../components/LeadForm/index.jsx';
             </p>
           </div>
           <div className="flex justify-between md:justify-start  gap-x-5 mt-12">
-            <Filters/>
-            <SortBy/>
+            <FilterBy />
+            <SortBy />
           </div>
         </div>
       </div>
-      <ProductsList/>
+      <ProductsList />
     </main>
     </ModalProvider>
   );
