@@ -4,7 +4,6 @@ import bannerTablet from '../../assets/images/hero_banner_tablet.png';
 import bannerDesktop from '../../assets/images/hero_banner.png';
 import SortBy from '../../components/SortBy/index.jsx';
 import FilterBy from '../../components/FilterBy';
-// import { LeadForm } from '../../components/LeadForm/index.jsx';
 import { ProductsList } from '../../components/ProductsList/index.jsx';
 import { ModalProvider } from '../../store/modal-context.jsx';
 import { ModalOrder } from '../../components/LeadForm/index.jsx';
@@ -15,6 +14,7 @@ function HomePage() {
     <ModalProvider>
     <main>
       <ModalOrder/>
+
       <div>
         <div>
           <picture>
@@ -44,7 +44,6 @@ function HomePage() {
             <FilterBy />
             <SortBy />
           </div>
-          {/* <LeadForm /> */}
         </div>
       </div>
       <ProductsList />

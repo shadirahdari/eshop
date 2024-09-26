@@ -52,8 +52,8 @@ const FilterModal = ({ show, close, update }) => {
             <FilterGroups title={"Color"} list={['Black', 'Yellow', 'Green', 'Silver', 'Rose gold', 'Red', 'white']} formik={formik} />
 
           </div>
-          <div className=' p-6 flex'>
-            <Button color="brightOutlined"  onClick={close} className="w-full mr-3  h-[48px]">
+          <div className=' p-6 flex gap-4'>
+            <Button color="brightOutlined"  onClick={close} className="w-full  h-[48px]">
               Close
             </Button>
             <Button color="dark"  onClick={() => {

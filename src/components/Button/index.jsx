@@ -4,9 +4,9 @@ import './style.css';
 import PropTypes from 'prop-types';
 
 const btnSizes = {
-  filter: 'w-full md:w-32',
+  filter: 'w-full md:w-44',
   seeResults: 'w-36 md:w-5/12',
-  mostPopular: 'w-40',
+  mostPopular: 'w-70',
   order: 'w-36',
   form: 'w-full lg:w-40',
 };
@@ -33,7 +33,7 @@ export const Button = ({
 
   return (
     <button
-      className={`px-2  button font-medium text-base hover:scale-105 ${className} ${btnSizeClasses} ${btnColorClasses} focus:border-2`}
+      className={`pl-8 pr-8 button font-medium text-base hover:scale-105 ${className} ${btnSizeClasses} ${btnColorClasses} focus:border-2`}
       type={type}
       onClick={onClick}>
       {children}

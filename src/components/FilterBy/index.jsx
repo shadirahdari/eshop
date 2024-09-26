@@ -8,7 +8,7 @@ function FilterBy() {
 
   return (
     <>
-      <Button onClick={() => set_show_filters(true)} color="brightOutlined" size="filter" className="py-2 flex justify-center items-center gap-1.5" >
+      <Button onClick={() => set_show_filters(true)} color="brightOutlined" size="filter" className="flex justify-center items-center gap-1.5 h-[40px]" >
         <svg className="filter-icon h-4 w-4" aria-hidden="true">
           <use href={icons + '#filter'} />
         </svg>
