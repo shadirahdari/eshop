@@ -15,7 +15,7 @@ const btnColors = {
   brightOutlined: `border border-secondary-bright text-secondary-bright hover:bg-secondary-light  focus:bg-secondary-light`,
   regular:
     'py-4 text-white bg-main-regular text-white hover:border-main-regular ',
-  dark: 'py-4 text-white bg-secondary-dark hover:scale-105 border-secondary-dark',
+  dark: 'text-white bg-secondary-dark  border-secondary-dark',
   darkOutlined:
     'border border-secondary-dark text-secondary-dark font-medium hover:border-secondary-light',
 };
@@ -33,7 +33,7 @@ export const Button = ({
 
   return (
     <button
-      className={`py-1 px-2 button font-medium text-base ${className} ${btnSizeClasses} ${btnColorClasses} focus:border-2`}
+      className={`px-2  button font-medium text-base hover:scale-105 ${className} ${btnSizeClasses} ${btnColorClasses} focus:border-2`}
       type={type}
       onClick={onClick}>
       {children}

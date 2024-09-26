@@ -41,7 +41,7 @@ const FilterModal = ({ show, close, update }) => {
             {
               overflow: "hidden scroll",
               maxHeight: "50vh",
-              width: 500,
+              width: 760,
               gap: 24,
             }
           }>
@@ -53,10 +53,10 @@ const FilterModal = ({ show, close, update }) => {
 
           </div>
           <div className=' p-6 flex'>
-            <Button color="brightOutlined" size="filter" onClick={close} className="w-full mr-3">
+            <Button color="brightOutlined"  onClick={close} className="w-full mr-3  h-[48px]">
               Close
             </Button>
-            <Button color="brightOutlined" size="filter" onClick={() => {
+            <Button color="dark"  onClick={() => {
               close()
               update(formik.values)
             }} className="w-full mr-2">
