@@ -12,10 +12,10 @@ const btnSizes = {
 };
 
 const btnColors = {
-  brightOutlined: `border border-secondary-bright text-secondary-bright hover:bg-secondary-light  focus:bg-secondary-light`,
+  brightOutlined: `h-[40px] border border-secondary-bright text-secondary-bright hover:bg-secondary-light  focus:bg-secondary-light`,
   regular:
     'py-4 text-white bg-main-regular text-white hover:border-main-regular ',
-  dark: 'text-white bg-secondary-dark  border-secondary-dark',
+  dark: 'h-[40px] text-white bg-secondary-dark  border-secondary-dark',
   darkOutlined:
     'border border-secondary-dark text-secondary-dark font-medium hover:border-secondary-light',
 };

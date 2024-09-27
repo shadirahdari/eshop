@@ -53,10 +53,10 @@ const FilterModal = ({ show, close, update }) => {
 
           </div>
           <div className=' p-6 flex gap-4'>
-            <Button color="brightOutlined"  onClick={close} className="w-full  h-[48px]">
+            <Button color="brightOutlined" onClick={close} className="w-full">
               Close
             </Button>
-            <Button color="dark"  onClick={() => {
+            <Button color="dark" onClick={() => {
               close()
               update(formik.values)
             }} className="w-full mr-2">
