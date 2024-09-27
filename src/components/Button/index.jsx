@@ -2,7 +2,15 @@ import React from 'react';
 import './style.css';
 import PropTypes from 'prop-types';
 
-const btnSizes = {
+export const Button = ({
+  size,
+  color = 'brightOutlined',
+  type = 'button',
+  onClick,
+  children,
+  className = '',
+}) => {
+  const btnSizes = {
     filter: 'w-full md:w-32',
     seeResults: 'w-36 md:w-5/12',
     mostPopular: 'w-40',
@@ -12,26 +20,18 @@ const btnSizes = {
 
   const btnColors = {
     brightOutlined: `${className}  border border-secondary-bright text-secondary-bright hover:bg-secondary-light  focus:bg-secondary-light`,
-    regular:
-      ` ${className} py-4 text-white bg-main hover:border-main-regular `,
+    regular: ` ${className} py-4 text-white bg-main hover:border-main-regular `,
     dark: 'py-4 text-white bg-secondary-dark hover:scale-[1.02] border-secondary-dark',
     darkOutlined:
       'border border-secondary-dark text-secondary-dark font-medium hover:border-secondary-light',
   };
-export const Button = ({
-  size,
-  color = "brightOutlined",
-  type = 'button',
-  onClick,
-  children,
-  className = ""
-}) => {
+
   const btnSizeClasses = btnSizes[size];
   const btnColorClasses = btnColors[color];
 
   return (
     <button
-      className={`button font-medium text-base ${btnSizeClasses} ${btnColorClasses} focus:border-1` }
+      className={`button font-medium text-base ${btnSizeClasses} ${btnColorClasses} focus:border-1`}
       type={type}
       onClick={onClick}>
       {children}
@@ -47,5 +47,3 @@ Button.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
 };
-
-
