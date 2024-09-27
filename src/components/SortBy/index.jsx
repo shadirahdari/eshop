@@ -1,8 +1,8 @@
-import React, {  useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import icons from '../../assets/svg/icons.svg';
 import { useClickOutside } from '../../hooks/useClickOutside.jsx';
-
+import { Button } from '../Button/index.jsx';
 
 function SortBy() {
   const [selectedOption, setSelectedOption] = useState('Most popular');
@@ -25,14 +25,18 @@ function SortBy() {
 
   useClickOutside(dropdownRef, () => setIsOpen(false));
   const handleChevronDown = () => {
-    const currentIndex = options.findIndex((option) => option.label === selectedOption);
+    const currentIndex = options.findIndex(
+      (option) => option.label === selectedOption,
+    );
     if (currentIndex < options.length - 1) {
       setSelectedOption(options[currentIndex + 1].label);
     }
   };
 
   const handleChevronUp = () => {
-    const currentIndex = options.findIndex((option) => option.label === selectedOption);
+    const currentIndex = options.findIndex(
+      (option) => option.label === selectedOption,
+    );
     if (currentIndex > 0) {
       setSelectedOption(options[currentIndex - 1].label);
     }
@@ -40,19 +44,20 @@ function SortBy() {
 
   return (
     <div className="w-full relative">
-      <button
+      <Button
         type="button"
-        className="flex justify-center items-center gap-1.5 px-4 h-[40px] font-bold font-medium text-nowrap button bg-sort  bg-no-repeat bg-sort-pos border border-secondary-bright text-secondary-bright hover:bg-secondary-light focus:bg-secondary-light"
-        id="menu-button"
+        size="mostPopular"
+        className="py-2 px-2 flex justify-center items-center gap-1.5 text-nowrap"
+        id="sorting-button"
         aria-expanded="true"
         aria-haspopup="true"
-        aria-label="Place your order"
+        aria-label="Choose sorting for procuts"
         onClick={() => handleClick()}>
         <svg className="sorter-icon h-4 w-4">
-          <use href={icons + '#sorter'}/>
+          <use href={icons + '#sorter'} />
         </svg>
         {selectedOption}
-      </button>
+      </Button>
       {isOpen && (
         <div
           className={`font-popup fixed md:absolute inset-x-0 bottom-0  md:-bottom-2 md:translate-y-full mt-2 w-screen md:w-72 focus:outline-none cursor-pointer`}
@@ -63,14 +68,14 @@ function SortBy() {
           ref={dropdownRef}>
           <div className="flex justify-between h-9 bg-dropdown-header px-4 md:hidden">
             <div className="flex gap-4">
-              <button onClick={()=> handleChevronDown() }>
+              <button onClick={() => handleChevronDown()}>
                 <svg className="h-5 w-5" aria-hidden="true">
-                  <use href={icons +"#chevron-down"} />
+                  <use href={icons + '#chevron-down'} />
                 </svg>
               </button>
-              <button onClick={() => handleChevronUp ()}>
+              <button onClick={() => handleChevronUp()}>
                 <svg className="h-5 w-5" aria-hidden="true">
-                  <use href={icons + '#chevron-up'}/>
+                  <use href={icons + '#chevron-up'} />
                 </svg>
               </button>
             </div>

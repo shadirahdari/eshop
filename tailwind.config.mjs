@@ -19,23 +19,6 @@ export default {
         'dropdown-gradient-2': '#4A4A4A',
         'dropdown-option-selected': '#707071',
       },
-      backgroundImage: {
-        sort: "url('src/assets/images/sorter.svg')",
-        filter: "url('src/assets/images/filter.svg')",
-      },
-      backgroundPosition: {
-        'sort-pos': '1.25rem 0.825rem',
-        close: '-54px -74px',
-        'filter-pos': '1.725rem 0.825rem',
-        'filter-pos-md': '1rem 0.5rem',
-        checkbox_1: '-10px -10px',
-        radio: '-54px -10px',
-        radio_selected: '-98px -10px',
-        error_input: '-142px -10px',
-        checkbox_circle: '-142px -54px',
-        checkbox_2: '-10px -74px',
-        arrow: '-10px -138px',
-      },
     },
     fontFamily: {
       popup: [
