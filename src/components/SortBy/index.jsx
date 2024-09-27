@@ -42,7 +42,7 @@ function SortBy() {
     <div className="w-full relative">
       <button
         type="button"
-        className="flex justify-center items-center gap-1.5 md:w-40 h-[40px] font-bold font-medium text-nowrap button bg-sort  bg-no-repeat bg-sort-pos border border-secondary-bright text-secondary-bright hover:bg-secondary-light focus:bg-secondary-light"
+        className="flex justify-center items-center gap-1.5 px-4 h-[40px] font-bold font-medium text-nowrap button bg-sort  bg-no-repeat bg-sort-pos border border-secondary-bright text-secondary-bright hover:bg-secondary-light focus:bg-secondary-light"
         id="menu-button"
         aria-expanded="true"
         aria-haspopup="true"
