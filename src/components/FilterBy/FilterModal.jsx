@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { filterReducer, initialState } from './filterReducer.jsx';
-import { FilterGroups } from "./FliterGroup.jsx"
+import { FilterGroups } from './FliterGroup.jsx';
 import { Button } from '../Button/index.jsx';
 
 const FilterModal = ({ show, close, update }) => {
@@ -53,23 +53,23 @@ const FilterModal = ({ show, close, update }) => {
 
           </div>
           <div className=' p-6 flex gap-4'>
-            <Button color="brightOutlined" onClick={close} className="w-full">
-              Close
-            </Button>
-            <Button color="dark" onClick={() => {
-              close()
-              update(formik.values)
-            }} className="w-full mr-2">
-              See results
-            </Button>
-
+              <Button onClick={close} size="filtersClose">
+                Close
+              </Button>
+              <Button
+                color="dark"
+                size="filtersResults"
+                onClick={() => {
+                  close();
+                  update(formik.values);
+                }}>
+                See results
+              </Button>
           </div>
         </form>
       </div>
-    </div>
+    )
   );
 };
 
 export default FilterModal;
-
-

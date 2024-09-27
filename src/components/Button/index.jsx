@@ -10,21 +10,22 @@ export const Button = ({
   children,
   className = '',
 }) => {
-  const btnColors = {
-    brightOutlined: `h-[40px] border border-secondary-bright text-secondary-bright hover:bg-secondary-light  focus:bg-secondary-light`,
-    regular:
-      'py-4 text-white bg-main-regular text-white hover:border-main-regular ',
-    dark: 'h-[40px] text-white bg-secondary-dark  border-secondary-dark',
-    darkOutlined:
-      'border border-secondary-dark text-secondary-dark font-medium hover:border-secondary-light',
+  const btnSizes = {
+    filter: 'w-full md:w-32',
+    seeResults: 'w-36 md:w-5/12',
+    mostPopular: 'w-full md:w-auto',
+    order: 'w-36',
+    form: 'w-full lg:w-40 lg:mt-8 py-4',
+    filtersClose: 'w-full h-12',
+    filtersResults: 'w-full mr-2',
   };
 
-  const btnSizes = {
-    filter: 'w-full md:w-44',
-    seeResults: 'w-36 md:w-5/12',
-    mostPopular: 'w-70',
-    order: 'w-36',
-    form: 'w-full lg:w-40 lg:mt-8',
+  const btnColors = {
+    brightOutlined: `${className}  border border-secondary-bright text-secondary-bright hover:bg-secondary-light  focus:bg-secondary-light`,
+    regular: ` ${className} py-4 text-white bg-main hover:border-main-regular `,
+    dark: 'text-white bg-secondary-dark border-secondary-dark',
+    darkOutlined:
+      'border border-secondary-dark text-secondary-dark font-medium hover:border-secondary-light',
   };
 
   const btnSizeClasses = btnSizes[size];
@@ -32,7 +33,7 @@ export const Button = ({
 
   return (
     <button
-      className={`pl-8 pr-8 button font-medium text-base hover:scale-105 ${className} ${btnSizeClasses} ${btnColorClasses} focus:border-2`}
+      className={` button font-medium text-base ${btnSizeClasses} ${btnColorClasses} focus:border-1`}
       type={type}
       onClick={onClick}>
       {children}
