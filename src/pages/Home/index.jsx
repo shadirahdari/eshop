@@ -7,8 +7,8 @@ import Filters from '../../components/Filters/index.jsx';
 import FilterBy from '../../components/FilterBy';
 import { ProductsList } from '../../components/ProductsList/index.jsx';
 import { ModalProvider } from '../../store/modal-context.jsx';
-import { ModalOrder } from '../../components/LeadForm/index.jsx';
 import { ProductsContext } from './constants.jsx';
+import { ModalOrder } from '../../components/ModalOrder/index.jsx';
 
 
 function HomePage() {
