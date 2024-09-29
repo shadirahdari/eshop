@@ -14,7 +14,8 @@ import { ProductsContext } from './constants.jsx';
 function HomePage() {
   const [filters, setFilters] = useState({
     Type: [],
-    Brand: []
+    Brand: [],
+    Color: []
   });
   const [products, setProducts] = useState([]);
 
