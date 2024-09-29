@@ -4,7 +4,7 @@ import { ProductCard } from '../ProductCard/index.jsx';
 import axios from 'axios';
 import { useProductContext } from '../../pages/Home/constants.jsx';
 
-const price_range = [[0, 100], [100, 500], [500, 1000], [1000, 1500], [1500, 2000]]
+const PRICE_RANGE = [[0, Infinity], [0, 100], [100, 500], [500, 1000], [1000, 1500], [1500, 2000]]
 
 export const ProductsList = () => {
   const { filters, products, setProducts } = useProductContext()
@@ -15,10 +15,13 @@ export const ProductsList = () => {
     const is_type = filters.Type.length === 0 || filters.Type.includes(product.product_type)
     const is_brand = filters.Brand.length === 0 || filters.Brand.includes(product.brand)
     const is_color = filters.Color.length === 0 || filters.Color.includes(product.color)
-    return is_type && is_brand && is_color
-  })
 
-  console.log(filters, products, filteredProducts)
+    const [min, max] = PRICE_RANGE[filters.Price]
+
+    const is_price = (product.price >= min && product.price < max)
+
+    return is_type && is_brand && is_color && is_price
+  })
 
   useEffect(() => {
     axios.get('https://e-shop-backend-ag4c.onrender.com/api/products')

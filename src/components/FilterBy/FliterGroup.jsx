@@ -12,7 +12,7 @@ export const FilterGroups = ({ title, list, formik, radio = false }) => (
                 type="checkbox"
                 id={`${title}-${index}`}
                 name={title}
-                value={index}
+                value={radio ? index : item}
                 onChange={radio ? () => {
                     formik.setFieldValue(title, index)
                 } : formik.handleChange}

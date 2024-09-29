@@ -15,7 +15,8 @@ function HomePage() {
   const [filters, setFilters] = useState({
     Type: [],
     Brand: [],
-    Color: []
+    Color: [], 
+    Price: 0
   });
   const [products, setProducts] = useState([]);
 
