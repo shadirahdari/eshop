@@ -1,4 +1,3 @@
-
 import React, { useContext } from 'react';
 import { Button } from '../Button/index.jsx';
 import { MonthlyPayment } from '../MonthlyPayment/index.jsx';

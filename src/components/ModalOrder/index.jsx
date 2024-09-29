@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
 import formBackground from '../../assets/images/form_background.png';
@@ -15,6 +15,21 @@ export function ModalOrder() {
   const modalRef = useRef(null);
   const { isModalOpen, closeModal } = useContext(ModalContext);
   const { userInfo, setUserInfo } = useState({});
+  const {statusOfOrder, setStatusOfOrder} = useState({});
+/*
+  useEffect(() => {
+    axios.post('https://e-shop-backend-ag4c.onrender.com/api/orders', {
+
+    })
+        .then(response => {
+          return response.json();
+        })
+        .then((resData) => {
+
+    }
+
+  }, []);
+*/
 
   const validationSchema = object({
     fullName: string()
