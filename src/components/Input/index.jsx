@@ -1,13 +1,14 @@
 import { ErrorMessage, Field } from 'formik';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import PropTypes from 'prop-types';
+import icons from '../../assets/svg/icons.svg';
 
-const TextInput = ({ label, name, type = 'text' }) => {
+const TextInput = ({ label, name, type = 'text', errors, touched }) => {
   return (
     <div>
-      <label htmlFor={name} className="block text-sm mb-1.5 font-medium leading-5">
+      <label
+        htmlFor={name}
+        className="block text-sm mb-1.5 font-medium leading-5">
         * {label}
       </label>
       <Field
@@ -20,8 +21,14 @@ const TextInput = ({ label, name, type = 'text' }) => {
       />
       <ErrorMessage name={name}>
         {(msg) => (
-          <div className="text-border-error text-sm mt-1 flex items-center gap-2" aria-describedby={`${name} validation hint`} aria-live="polite">
-            <FontAwesomeIcon icon={faTriangleExclamation} /> {msg}
+          <div
+            className="text-border-error text-sm mt-1 flex items-center gap-1"
+            aria-describedby={`${name} validation hint`}
+            aria-live="polite">
+            <svg className="sorter-icon h-5 w-5">
+              <use href={icons + '#triangle-err'} />
+            </svg>
+            <span className="align-bottom">{msg}</span>
           </div>
         )}
       </ErrorMessage>
@@ -29,11 +36,12 @@ const TextInput = ({ label, name, type = 'text' }) => {
   );
 };
 
-
-export default TextInput
+export default TextInput;
 TextInput.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   label: PropTypes.string,
-  type:PropTypes.string,
-}
+  type: PropTypes.string,
+  errors: PropTypes.object,
+  touched: PropTypes.object,
+};
