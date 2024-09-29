@@ -4,8 +4,11 @@ import * as Yup from 'yup';
 import { filterReducer, initialState } from './filterReducer.jsx';
 import { FilterGroups } from "./FliterGroup.jsx"
 import { Button } from '../Button/index.jsx';
+import { useProductContext } from '../../pages/Home/constants.jsx';
 
-const FilterModal = ({ show, close, update }) => {
+
+const FilterModal = ({ show, close, }) => {
+  const { filters, setFilters } = useProductContext()
   const [state, dispatch] = useReducer(filterReducer, initialState);
 
   // Define validation schema with Yup
@@ -31,75 +34,41 @@ const FilterModal = ({ show, close, update }) => {
       close(); // Close the modal on submit
     },
   });
-  return (
-    show && (
-      <div
-        className="fixed inset-0 flex items-center justify-center z-50"
-        style={{ background: '#171717c2' }}>
-        <div className="bg-white rounded shadow-lg">
-          <h2 className="text-xl mb-4  p-6">Filter By</h2>
-          <form onSubmit={formik.handleSubmit} className="flex flex-col">
-            <div
-              className=" p-6"
-              style={{
-                overflow: 'hidden scroll',
-                maxHeight: '50vh',
-                width: 760,
-                gap: 24,
-              }}>
-              <FilterGroups
-                title={'Type'}
-                list={['Mobile phone', 'Accessories']}
-                formik={formik}
-              />
-              <FilterGroups
-                title={'Brand'}
-                list={['Samsung', 'Xiaomi', 'Apple', 'OnePlus', 'Sony']}
-                formik={formik}
-              />
-              <FilterGroups
-                title={'Price'}
-                list={[
-                  '0 - 100 Eur/month',
-                  '100 - 500 Eur/month',
-                  '500 - 1000 Eur/month',
-                  '1000 - 1500 Eur/month',
-                  '15000 - 2000 Eur/month',
-                ]}
-                formik={formik}
-              />
-              <FilterGroups
-                title={'Color'}
-                list={[
-                  'Black',
-                  'Yellow',
-                  'Green',
-                  'Silver',
-                  'Rose gold',
-                  'Red',
-                  'white',
-                ]}
-                formik={formik}
-              />
-            </div>
-            <div className=" p-6 flex gap-4">
-              <Button onClick={close} size="filtersClose">
-                Close
-              </Button>
-              <Button
-                color="dark"
-                size="filtersResults"
-                onClick={() => {
-                  close();
-                  update(formik.values);
-                }}>
-                See results
-              </Button>
-            </div>
-          </form>
-        </div>
+  return show && (
+    <div className="fixed inset-0 flex items-center justify-center z-50" style={{ background: "#171717c2" }}>
+      <div className="bg-white rounded shadow-lg">
+        <h2 className="text-xl mb-4  p-6">Filter By</h2>
+        <form onSubmit={formik.handleSubmit} className="flex flex-col">
+          <div className=' p-6' style={
+            {
+              overflow: "hidden scroll",
+              maxHeight: "50vh",
+              width: 760,
+              gap: 24,
+            }
+          }>
+
+            <FilterGroups title={"Type"} list={['Mobile phones', 'Accessories']} formik={formik} />
+            <FilterGroups title={"Brand"} list={['Samsung', 'Xiaomi', 'Apple', 'OnePlus', 'Sony']} formik={formik} />
+            <FilterGroups title={"Price"} list={['0 - 100 Eur/month', '100 - 500 Eur/month', '500 - 1000 Eur/month', '1000 - 1500 Eur/month', '15000 - 2000 Eur/month']} formik={formik} />
+            <FilterGroups title={"Color"} list={['Black', 'Yellow', 'Green', 'Silver', 'Rose gold', 'Red', 'white']} formik={formik} />
+
+          </div>
+          <div className=' p-6 flex gap-4'>
+            <Button color="brightOutlined" onClick={close} className="w-full">
+              Close
+            </Button>
+            <Button color="dark" onClick={() => {
+              close()
+              setFilters(formik.values)
+            }} className="w-full mr-2">
+              See results
+            </Button>
+
+          </div>
+        </form>
       </div>
-    )
+    </div>
   );
 };
 

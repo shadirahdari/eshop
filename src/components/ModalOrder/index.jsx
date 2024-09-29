@@ -24,7 +24,7 @@ export function ModalOrder() {
         .then(response => {
           return response.json();
         })
-        .then((resData) => {
+        .then((resData) => {fi
 
     }
 
