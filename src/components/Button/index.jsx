@@ -23,7 +23,7 @@ export const Button = ({
   const btnColors = {
     brightOutlined: `${className} border border-secondary-bright text-secondary-bright hover:bg-secondary-light  focus:bg-secondary-light`,
     regular: ` ${className} py-4 text-white bg-main hover:border-main-regular `,
-    dark: 'text-white bg-secondary-dark border-secondary-dark',
+    dark: `${className} text-white bg-secondary-dark border-secondary-dark`,
     darkOutlined:
       'border border-secondary-dark text-secondary-dark font-medium hover:border-secondary-light',
   };

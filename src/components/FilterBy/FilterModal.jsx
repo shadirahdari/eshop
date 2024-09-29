@@ -33,7 +33,6 @@ const FilterModal = ({ show, close, }) => {
       close(); // Close the modal on submit
     },
   });
-
   return show && (
     <div className="fixed inset-0 flex items-center justify-center z-50" style={{ background: "#171717c2" }}>
       <div className="bg-white rounded shadow-lg">
