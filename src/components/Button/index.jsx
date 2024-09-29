@@ -21,7 +21,7 @@ export const Button = ({
   };
 
   const btnColors = {
-    brightOutlined: `${className}  border border-secondary-bright text-secondary-bright hover:bg-secondary-light  focus:bg-secondary-light`,
+    brightOutlined: `${className} border border-secondary-bright text-secondary-bright hover:bg-secondary-light  focus:bg-secondary-light`,
     regular: ` ${className} py-4 text-white bg-main hover:border-main-regular `,
     dark: 'text-white bg-secondary-dark border-secondary-dark',
     darkOutlined:
@@ -33,7 +33,7 @@ export const Button = ({
 
   return (
     <button
-      className={`h-[40px] button font-medium text-base ${className} ${btnSizeClasses} ${btnColorClasses} focus:border-1`}
+      className={`button font-medium text-base ${className} ${btnSizeClasses} ${btnColorClasses} focus:border-1`}
       type={type}
       onClick={onClick}>
       {children}
