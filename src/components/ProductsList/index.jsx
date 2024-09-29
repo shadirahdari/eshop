@@ -11,10 +11,12 @@ export const ProductsList = () => {
 
 
   const filteredProducts = products.filter(product => {
-    return filters.Type.length === 0 || filters.Type.includes(product.product_type)
+    const is_type = filters.Type.length === 0 || filters.Type.includes(product.product_type)
+    const is_brand = filters.Brand.length === 0 || filters.Brand.includes(product.brand)
+    return is_type && is_brand
   })
 
-  console.log(filters, products, filteredProducts)
+  console.log(filters, products)
 
   useEffect(() => {
     axios.get('https://e-shop-backend-ag4c.onrender.com/api/products')
