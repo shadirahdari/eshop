@@ -9,7 +9,7 @@ export const ProductsList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/products')
+    axios.get('https://e-shop-backend-ag4c.onrender.com/api/products')
       .then((response) => {
         setProducts(response.data);
         setLoading(false);

@@ -33,7 +33,7 @@ export const Button = ({
 
   return (
     <button
-      className={` button font-medium text-base ${btnSizeClasses} ${btnColorClasses} focus:border-1`}
+      className={` button font-medium text-base ${className} ${btnSizeClasses} ${btnColorClasses} focus:border-1`}
       type={type}
       onClick={onClick}>
       {children}

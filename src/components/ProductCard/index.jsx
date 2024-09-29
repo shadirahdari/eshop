@@ -11,26 +11,28 @@ import PropTypes from 'prop-types';
 import './style.css';
 import icons from '../../assets/svg/icons.svg';
 
+const imageUrl = (productImg) => {
+  return `https://res.cloudinary.com/dewhrjfex/image/upload/${productImg}`;
+}
+
 export const ProductCard = ({ product }) => {
-  const {openModal} = useContext(ModalContext);
-  const imageUrl = (productImg) => {
-    return `https://res.cloudinary.com/dewhrjfex/image/upload/${productImg}`;
-  }
+  const { openModal } = useContext(ModalContext);
+ 
   return (
     <div className="es-product-card">
       <div className="es-product-card-main">
         <div className="es-product-card-top">
           <div className="es-product-card-top-left">
-            <CardImage />
+            <CardImage photo={imageUrl(product.picture)} />
           </div>
           <div className="es-product-card-top-right">
-            <OverLine company={'APPLE'} title={product.name} />
+            <OverLine company={product.brand} title={product.title} />
             <ColorDots />
           </div>
         </div>
         <div>
           {' '}
-          <Text text={product.description} />
+          <Text text={product.shortDescription} />
         </div>
 
         <div className="es-price-botton">
@@ -50,8 +52,8 @@ export const ProductCard = ({ product }) => {
 
 ProductCard.propTypes = {
   product: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    shortDescription: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     isInstock: PropTypes.number.isRequired,
   }).isRequired,
