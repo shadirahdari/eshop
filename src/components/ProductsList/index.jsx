@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ProductCard } from '../ProductCard/index.jsx';
 // eslint-disable-next-line import/namespace,import/default,import/no-named-as-default,import/no-extraneous-dependencies,import/no-named-as-default-member
 import axios from 'axios';
+import "./style.css"
 
 export const ProductsList = () => {
   const [products, setProducts] = useState([]);
@@ -29,13 +30,13 @@ export const ProductsList = () => {
   }
 
   return (
-    <div>
-      <h1>Products</h1>
-      <ul>
+    <div className='es-products-list-container'>
+      <h1 className='mb-4'>Products</h1>
+      <div className='es-products-list'>
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.product_id} product={product} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

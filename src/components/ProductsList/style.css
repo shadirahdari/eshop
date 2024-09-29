@@ -1,0 +1,9 @@
+.es-products-list{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.es-products-list-container{
+  margin: 20px;
+}
