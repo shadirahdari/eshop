@@ -1,4 +1,4 @@
-.es-product-card {
+/* .es-product-card {
   width: 343px;
   height: 336px;
   background: var(--Color-Background-secondary, #f5f5fa);
@@ -38,5 +38,3 @@
   height: 48px;
   gap: 25px;
   align-items: center;
-}
->>>>>>> d4164652d9fc5318ac8cd453eaf99578522a2db0
