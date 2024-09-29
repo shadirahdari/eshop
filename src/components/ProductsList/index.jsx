@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { ProductCard } from '../ProductCard';
-import { get } from 'axios';
+import { ProductCard } from '../ProductCard/index.jsx';
+import axios from 'axios';
+
 
 export const ProductsList = () => {
   const [products, setProducts] = useState([]);
@@ -8,13 +9,13 @@ export const ProductsList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    get('http://localhost:3000/api/products')
+    axios.get('http://localhost:3000/api/products')
       .then((response) => {
         setProducts(response.data);
         setLoading(false);
       })
       .catch((err) => {
-        setError('err.message');
+        setError(err.message);
         setLoading(false);
       });
   }, []);

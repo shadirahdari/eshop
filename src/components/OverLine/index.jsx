@@ -1,13 +1,11 @@
-import { React, Fragment } from 'react';
-import './style.css';
-// eslint-disable-next-line import/no-extraneous-dependencies
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 export const OverLine = ({ company, title }) => {
   return (
     <Fragment>
       <div>{company}</div>
-      <span className="es-font">{title}</span>
+      <span className="font-bold text-[20px]">{title}</span>
     </Fragment>
   );
 };

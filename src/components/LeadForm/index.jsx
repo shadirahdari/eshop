@@ -1,44 +1,75 @@
-import React from 'react';
-// eslint-disable-next-line import/namespace
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-// eslint-disable-next-line import/namespace
-import * as Yup from 'yup';
+import React, { useContext, useRef } from 'react';
+import { Formik, Form } from 'formik';
+import { object, string } from 'yup';
 import formBackground from '../../assets/images/form_background.png';
-// eslint-disable-next-line import/namespace
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faTriangleExclamation,
-  faXmark,
-} from '@fortawesome/free-solid-svg-icons';
+import icons from '../../assets/svg/icons.svg';
+import { useClickOutside } from '../../hooks/useClickOutside.jsx';
+import TextInput from '../Input/index.jsx';
 import { Button } from '../Button/index.jsx';
+import Modal from 'react-modal';
+import { ModalContext } from '../../store/modal-context.jsx';
 
-const LeadForm = () => {
-  // Validation schema using Yup
-  const validationSchema = Yup.object({
-    name: Yup.string().required('Fill in the required field'),
-    email: Yup.string()
+Modal.setAppElement('#root');
+
+export function ModalOrder() {
+  const modalRef = useRef(null);
+  const { isModalOpen, closeModal } = useContext(ModalContext);
+
+  const validationSchema = object({
+    name: string()
+      .min(2, 'Must be  at least 2 characters')
+      .max(30, 'Must be 30 characters or less')
+      .required('Fill in the required field'),
+    email: string()
       .email('Invalid email address')
       .required('Fill in the required field'),
-    phone: Yup.string().required('Fill in the required field'),
+    phone: string()
+      .matches(
+        /^\+\d{1,3}\d{7,15}$/,
+        'Phone number should start from + and contain to 15 digits',
+      )
+      .required('Fill in the required field'),
   });
 
+  useClickOutside(modalRef, () => closeModal());
+
+  const handleClick = () => {
+    closeModal();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    closeModal();
+  };
+
   return (
-    <div className="flex justify-center min-h-screen">
-      <div className="p-3 w-full lg:max-w-4xl flex flex-col lg:flex-row">
-        <div
-          className="hidden lg:block bg-cover bg-no-repeat w-72 h-full"
-          style={{ backgroundImage: 'url("your-image-url.jpg")' }}>
-          <img src={formBackground} alt="purple form background" />
+    <Modal
+      isOpen={isModalOpen}
+      onRequestClose={closeModal}
+      className="bg-white w-full relative lg:max-w-4xl z-10 mx-auto transition-opacity duration-300 ease-in-out opacity-100"
+      overlayClassName="flex justify-center fixed inset-0 top-0 lg:bg-slate-800 lg:bg-opacity-35 items-center transition-opacity duration-300 ease-in-out ">
+      <div
+        className="p-3 lg:p-0 container h-screen lg:h-3/5 flex justify-center"
+        ref={modalRef}>
+        <div className="hidden lg:block bg-cover bg-no-repeat w-72 overflow-hidden ">
+          <img
+            src={formBackground}
+            alt="purple form background"
+            loading="lazy"
+          />
         </div>
         <div className="flex-1 p-1 lg:px-12 lg:py-2.5">
           <div className="flex justify-between mb-6 mt-1.5">
-            <h1 className="font-bold text-3xl leading-9 lg:leading-tight">
+            <h2 className="font-bold text-3xl mt-4 leading-9 lg:leading-tight">
               Finalise Your Order
-            </h1>
+            </h2>
             <button
               aria-label="Close form"
-              className="button text-3xl relative -top-3 md:static lg:relative lg:-top-4 hover:scale-125">
-              <FontAwesomeIcon icon={faXmark} />
+              className="button relative -top-8 md:static lg:relative lg:-top-4 lg:left-7 hover:scale-125"
+              onClick={() => handleClick()}>
+              <svg className="close-icon h-8 w-8">
+                <use href={icons + '#close'} />
+              </svg>
             </button>
           </div>
           <p className="text-left font-normal text-base lg:text-lg mb-5 leading-6">
@@ -47,84 +78,52 @@ const LeadForm = () => {
           </p>
 
           <Formik
-            initialValues={{ name: '', email: '', phone: '' }}
+            initialValues={{
+              name: '',
+              email: '',
+              phone: '',
+            }}
             validationSchema={validationSchema}
             onSubmit={(values) => {
               console.log(values);
             }}>
             {({ errors, touched }) => (
               <Form className="flex flex-col gap-4">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm mb-1.5 font-medium leading-5">
-                    * Name and Surname
-                  </label>
-                  <Field
-                    id="name"
-                    name="name"
-                    className="w-full px-3 pt-2 pb-3 border rounded-sm border-neutral-500 focus:outline-none focus:ring-1 focus:ring-main"
-                  />
-                  <ErrorMessage name="name">
-                    {(msg) => (
-                      <div className="text-border-error text-sm mt-1 flex items-center gap-2">
-                        <FontAwesomeIcon icon={faTriangleExclamation} /> {msg}
-                      </div>
-                    )}
-                  </ErrorMessage>
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm mb-1.5 font-medium leading-5">
-                    * Email address
-                  </label>
-                  <Field
-                    id="email"
-                    name="email"
-                    type="email"
-                    className="w-full px-3 pt-2 pb-3 border rounded-sm border-neutral-500 focus:outline-none focus:ring-1 focus:ring-main invalid:border-border-error"
-                  />
-                  <ErrorMessage name="email">
-                    {(msg) => (
-                      <div className="text-border-error text-sm mt-1 flex items-center gap-2">
-                        <FontAwesomeIcon icon={faTriangleExclamation} /> {msg}
-                      </div>
-                    )}
-                  </ErrorMessage>
-                </div>
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm mb-1.5 font-medium leading-5">
-                    * Phone number
-                  </label>
-                  <Field
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    className="w-full px-3 pt-2 pb-3  border rounded-sm border-neutral-500 focus:outline-none focus:ring-1 focus:ring-main"
-                  />
-                  <ErrorMessage name="phone">
-                    {(msg) => (
-                      <div className="text-border-error text-sm mt-1 flex items-center gap-2">
-                        <FontAwesomeIcon icon={faTriangleExclamation} /> {msg}
-                      </div>
-                    )}
-                  </ErrorMessage>
-                </div>
-                <div className="mt-6">
-                  <Button type="submit" color={'dark'} size={'form'}>
-                    Place an order
-                  </Button>
-                </div>
+                <TextInput
+                  label="Name and Surname"
+                  name="name"
+                  placeholder="Enter your name"
+                  id="name"
+                />
+                <TextInput
+                  label="Email address"
+                  name="email"
+                  placeholder="Enter your email"
+                  id="email"
+                />
+                <TextInput
+                  label="Phone number"
+                  name="phone"
+                  placeholder="Enter your phone"
+                  id="phone"
+                />
+                <Button
+                  type="submit"
+                  color={'dark'}
+                  size={'form'}
+                  className="hover:scale-[1.02] "
+                  aria-label="Place your order"
+                  onClick={() => handleSubmit()}>
+                  Place an order
+                </Button>
               </Form>
             )}
           </Formik>
         </div>
       </div>
-    </div>
+    </Modal>
   );
 };
 
-export default LeadForm;
+export default ModalOrder;
+

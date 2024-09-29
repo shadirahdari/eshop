@@ -2,21 +2,33 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/*
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-*/
 
-/*@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}*/
+@font-face {
+  font-family: 'Helvetica Neue Bold';
+  src: url('assets/fonts/HelveticaNeueCyr-Medium.eot') format('eot');
+  src: url('assets/fonts/HelveticaNeueCyr-Medium.woff2') format('woff2');
+  unicode-range: U+0020-007F, U+00A0-00FF, U+2010-2015, U+2018-2019, U+201C-201D,
+    U+2026;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Helvetica Neue Light';
+  src: url('assets/fonts/HelveticaLight.eot') format('eot');
+  src: url('assets/fonts/HelveticaNeueLight.woff2') format('woff2');
+  unicode-range: U+0020-007F, U+00A0-00FF, U+2010-2015, U+2018-2019, U+201C-201D,
+    U+2026;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('assets/fonts/HelveticaNeueCyr-Roman.eot') format('eot');
+  src: url('assets/fonts/HelveticaNeueCyr-Roman.woff2') format('woff2');
+  unicode-range: U+0020-007F, U+00A0-00FF, U+2010-2015, U+2018-2019, U+201C-201D,
+    U+2026;
+  font-display: swap;
+}
+
 
 @layer utilities {
   .text-balance {
@@ -28,24 +40,8 @@
 }
 
 @layer base {
-  @font-face {
-    font-family: 'Helvetica Neue Thin';
-    src:
-      url('assets/fonts/HelveticaNeue.woff2') format('font/woff2'),
-      url('/assets/fonts/HelveticaNeue.woff') format('font/woff');
-    unicode-range: U+0020-007F, U+00A0-00FF, U+2010-2015, U+2018-2019,
-      U+201C-201D, U+2026;
-    font-display: swap;
   }
 
-  /*  @font-face {
-    font-family: 'Helvetica Neue Bold';
-    src: url('assets/fonts/HelveticaNeueBold.woff2') format('woff2');
-    unicode-range: U+0020-007F, U+00A0-00FF, U+2010-2015, U+2018-2019,
-      U+201C-201D, U+2026;
-    font-display: swap;
-  }*/
   html {
     font-size-adjust: 0.522;
   }
-}
