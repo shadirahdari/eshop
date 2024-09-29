@@ -12,10 +12,10 @@ import './style.css';
 import icons from '../../assets/svg/icons.svg';
 
 export const ProductCard = ({ product }) => {
-  const {openModal} = useContext(ModalContext);
+  const { openModal } = useContext(ModalContext);
   const imageUrl = (productImg) => {
     return `https://res.cloudinary.com/dewhrjfex/image/upload/${productImg}`;
-  }
+  };
   return (
     <div className="es-product-card">
       <div className="es-product-card-main">
@@ -36,10 +36,18 @@ export const ProductCard = ({ product }) => {
         <div className="es-price-botton">
           {' '}
           <MonthlyPayment price={product.price} />
-          <Button className="flex justify-center items-center gap-1.5" size="order" color="dark" label="Order now" onClick={() => openModal()}><span>Order</span>
-            now <svg className="h-4 w-4 " aria-hidden="true">
+          <Button
+            className="flex justify-center items-center gap-1.5"
+            size="order"
+            color="regular"
+            label="Order now"
+            onClick={() => openModal()}>
+            <span>Order</span>
+            now{' '}
+            <svg className="h-4 w-4 " aria-hidden="true">
               <use href={icons + '#arrow-right'} />
-            </svg></Button>
+            </svg>
+          </Button>
         </div>
       </div>
       <StockStatus inStock={product.isInstock > 0} />

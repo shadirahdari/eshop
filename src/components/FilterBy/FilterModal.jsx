@@ -32,27 +32,58 @@ const FilterModal = ({ show, close, update }) => {
     },
   });
 
-  return show && (
-    <div className="fixed inset-0 flex items-center justify-center z-50" style={{ background: "#171717c2" }}>
-      <div className="bg-white rounded shadow-lg">
-        <h2 className="text-xl mb-4  p-6">Filter By</h2>
-        <form onSubmit={formik.handleSubmit} className="flex flex-col">
-          <div className=' p-6' style={
-            {
-              overflow: "hidden scroll",
-              maxHeight: "50vh",
-              width: 760,
-              gap: 24,
-            }
-          }>
-
-            <FilterGroups title={"Type"} list={['Mobile phone', 'Accessories']} formik={formik} />
-            <FilterGroups title={"Brand"} list={['Samsung', 'Xiaomi', 'Apple', 'OnePlus', 'Sony']} formik={formik} />
-            <FilterGroups title={"Price"} list={['0 - 100 Eur/month', '100 - 500 Eur/month', '500 - 1000 Eur/month', '1000 - 1500 Eur/month', '15000 - 2000 Eur/month']} formik={formik} />
-            <FilterGroups title={"Color"} list={['Black', 'Yellow', 'Green', 'Silver', 'Rose gold', 'Red', 'white']} formik={formik} />
-
-          </div>
-          <div className=' p-6 flex gap-4'>
+  return (
+    show && (
+      <div
+        className="fixed inset-0 flex items-center justify-center z-50"
+        style={{ background: '#171717c2' }}>
+        <div className="bg-white rounded shadow-lg">
+          <h2 className="text-xl mb-4  p-6">Filter By</h2>
+          <form onSubmit={formik.handleSubmit} className="flex flex-col">
+            <div
+              className=" p-6"
+              style={{
+                overflow: 'hidden scroll',
+                maxHeight: '50vh',
+                width: 760,
+                gap: 24,
+              }}>
+              <FilterGroups
+                title={'Type'}
+                list={['Mobile phone', 'Accessories']}
+                formik={formik}
+              />
+              <FilterGroups
+                title={'Brand'}
+                list={['Samsung', 'Xiaomi', 'Apple', 'OnePlus', 'Sony']}
+                formik={formik}
+              />
+              <FilterGroups
+                title={'Price'}
+                list={[
+                  '0 - 100 Eur/month',
+                  '100 - 500 Eur/month',
+                  '500 - 1000 Eur/month',
+                  '1000 - 1500 Eur/month',
+                  '15000 - 2000 Eur/month',
+                ]}
+                formik={formik}
+              />
+              <FilterGroups
+                title={'Color'}
+                list={[
+                  'Black',
+                  'Yellow',
+                  'Green',
+                  'Silver',
+                  'Rose gold',
+                  'Red',
+                  'white',
+                ]}
+                formik={formik}
+              />
+            </div>
+            <div className=" p-6 flex gap-4">
               <Button onClick={close} size="filtersClose">
                 Close
               </Button>
@@ -65,8 +96,9 @@ const FilterModal = ({ show, close, update }) => {
                 }}>
                 See results
               </Button>
-          </div>
-        </form>
+            </div>
+          </form>
+        </div>
       </div>
     )
   );
