@@ -4,8 +4,10 @@ import * as Yup from 'yup';
 import { filterReducer, initialState } from './filterReducer.jsx';
 import { FilterGroups } from "./FliterGroup.jsx"
 import { Button } from '../Button/index.jsx';
+import { useProductContext } from '../../pages/Home/constants.jsx';
 
-const FilterModal = ({ show, close, update }) => {
+const FilterModal = ({ show, close, }) => {
+  const { filters, setFilters } = useProductContext()
   const [state, dispatch] = useReducer(filterReducer, initialState);
 
   // Define validation schema with Yup
@@ -46,7 +48,7 @@ const FilterModal = ({ show, close, update }) => {
             }
           }>
 
-            <FilterGroups title={"Type"} list={['Mobile phone', 'Accessories']} formik={formik} />
+            <FilterGroups title={"Type"} list={['Mobile phones', 'Accessories']} formik={formik} />
             <FilterGroups title={"Brand"} list={['Samsung', 'Xiaomi', 'Apple', 'OnePlus', 'Sony']} formik={formik} />
             <FilterGroups title={"Price"} list={['0 - 100 Eur/month', '100 - 500 Eur/month', '500 - 1000 Eur/month', '1000 - 1500 Eur/month', '15000 - 2000 Eur/month']} formik={formik} />
             <FilterGroups title={"Color"} list={['Black', 'Yellow', 'Green', 'Silver', 'Rose gold', 'Red', 'white']} formik={formik} />
@@ -58,7 +60,7 @@ const FilterModal = ({ show, close, update }) => {
             </Button>
             <Button color="dark" onClick={() => {
               close()
-              update(formik.values)
+              setFilters(formik.values)
             }} className="w-full mr-2">
               See results
             </Button>
