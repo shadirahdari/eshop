@@ -1,4 +1,6 @@
+
 /* .es-stock-status{
+>>>>>>> d4164652d9fc5318ac8cd453eaf99578522a2db0
     width: 343px;
     height: 40px;
     padding: 10px 0px;
@@ -9,11 +11,17 @@
     gap: 15px;
     justify-content: center;
     border-top: 1px solid var(--Color-Border-weak, #00000029)
-} 
+}
 
 .es-in-stock{
     color: var(--Color-Text-Status-success-strong, #02562B);
 
 }
+<<<<<<< HEAD
+.es-not-in-stock{
+    color: var(--Color-Text-Status-error-strong, #980233);
+
+}
+=======
 
 } */

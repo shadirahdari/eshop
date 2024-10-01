@@ -6,6 +6,7 @@ import { FilterGroups } from "./FliterGroup.jsx"
 import { Button } from '../Button/index.jsx';
 import { useProductContext } from '../../pages/Home/constants.jsx';
 
+
 const FilterModal = ({ show, close, }) => {
   const { setFilters } = useProductContext()
   // const [state, dispatch] = useReducer(filterReducer, initialState);
@@ -54,13 +55,13 @@ const FilterModal = ({ show, close, }) => {
 
           </div>
           <div className=' p-6 flex gap-4'>
-            <Button color="brightOutlined" onClick={close} className="w-full">
+            <Button color="brightOutlined" size="filtersClose" onClick={close} className="w-full">
               Close
             </Button>
-            <Button color="dark" onClick={() => {
+            <Button color="dark" size="filtersResults" onClick={() => {
               close()
               setFilters(formik.values)
-            }} className="w-full mr-2">
+            }}>
               See results
             </Button>
 

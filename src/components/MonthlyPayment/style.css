@@ -1,11 +1,17 @@
+
 /* .es-monthly-payment {
+>>>>>>> d4164652d9fc5318ac8cd453eaf99578522a2db0
   font-family: Helvetica, Neue, Arial;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
   text-align: left;
   width: 143px;
+<<<<<<< HEAD
+  height:24px;
+=======
   height: 24px;
+>>>>>>> d4164652d9fc5318ac8cd453eaf99578522a2db0
   gap: 4px;
   opacity: 0px;
   display: flex;
@@ -13,4 +19,8 @@
 
 
 
+<<<<<<< HEAD
+}
+=======
 } */
+

@@ -1,5 +1,7 @@
 export default {
-  content: ['./src/components/**/*.jsx', './src/pages/**/*.jsx'],
+  content: [
+    './src/components/**/*.jsx',
+    './src/pages/**/*.jsx',  ],
   darkMode: 'media',
   theme: {
     extend: {

@@ -29,6 +29,7 @@
   font-display: swap;
 }
 
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -39,9 +40,10 @@
 }
 
 @layer base {
-  }
-
-
   html {
+    font-family: Helvetica Neue;
     font-size-adjust: 0.522;
   }
+  }
+
+

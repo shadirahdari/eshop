@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { ProductCard } from '../ProductCard/index.jsx';
-// eslint-disable-next-line import/namespace,import/default,import/no-named-as-default,import/no-extraneous-dependencies,import/no-named-as-default-member
 import axios from 'axios';
 import { useProductContext } from '../../pages/Home/constants.jsx';
 
