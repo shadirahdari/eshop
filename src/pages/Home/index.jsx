@@ -61,7 +61,7 @@ function HomePage() {
               <div className="flex mt-16 justify-center ">
                 <aside className="w-[300px] hidden lg:block">
                   <p className="text-sm font-bold font-medium text-zinc-900 mb-4">Sort By</p>
-                  <SortByOptions isDesktop={true} handleSelect={setSortType} />
+                  <SortByOptions isDesktop={true} />
                   <FilterContent />
                 </aside>
                 <ProductsList />
