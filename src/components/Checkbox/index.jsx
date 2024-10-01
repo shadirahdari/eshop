@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.css';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 
 export const Checkbox = ({ label, id, radio = false, name, value, checked, onChange }) => {

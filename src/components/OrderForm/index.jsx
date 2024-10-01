@@ -1,7 +1,7 @@
 import {Form, Formik} from "formik";
 import TextInput from "../Input/index.jsx";
 import {Button} from "../Button/index.jsx";
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {ModalContext} from "../../store/modal-context.jsx";
 import PropTypes from "prop-types";
 import submitOrder from "../../api/submitOrder.jsx";
@@ -18,9 +18,9 @@ const validationSchema = Yup.object({
         .required('Fill in the required field'),
 });
 
-const OrderFormContent = ({ onFormSubmit, setIsLoading }) => {
-    const { selectedProduct } = useContext(ModalContext);
-
+const OrderFormContent = ({ onFormSubmit,isLoading, setIsLoading }) => {
+    const { selectedProduct} = useContext(ModalContext);
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     return (
         <>
             <p className="text-left font-normal text-base lg:text-lg mb-5 leading-6">
@@ -31,6 +31,7 @@ const OrderFormContent = ({ onFormSubmit, setIsLoading }) => {
                 validationSchema={validationSchema}
                 onSubmit={async (values, actions) => {
                     setIsLoading(true);
+                    await sleep(500)
                     const success = await submitOrder(values, selectedProduct);
                     actions.setSubmitting(false);
                     onFormSubmit(success);
@@ -41,7 +42,7 @@ const OrderFormContent = ({ onFormSubmit, setIsLoading }) => {
                         <TextInput label="Name and Surname" name="fullName" placeholder="Enter your name" id="fullName" />
                         <TextInput label="Email address" name="email" placeholder="Enter your email" id="email" />
                         <TextInput label="Phone number" name="phone" placeholder="Enter your phone" id="phone" />
-                        <Button type="submit" color="dark" size="form" className="hover:scale-[1.02]">
+                        <Button type="submit" color="dark" size="form" className="hover:scale-[1.02]" disabled={isLoading}>
                             Place an order
                         </Button>
                     </Form>
@@ -56,5 +57,6 @@ export default OrderFormContent;
 
 OrderFormContent.propTypes = {
     onFormSubmit: PropTypes.func,
+    isLoading: PropTypes.bool,
     setIsLoading: PropTypes.func,
 }
