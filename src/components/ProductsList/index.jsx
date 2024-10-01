@@ -16,8 +16,6 @@ export const ProductsList = () => {
     return is_type && is_brand
   })
 
-  console.log(filters, products)
-
   useEffect(() => {
     axios.get('https://e-shop-backend-ag4c.onrender.com/api/products')
       .then((response) => {
