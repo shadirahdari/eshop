@@ -25,7 +25,7 @@ export const ProductCard = ({ product }) => {
           </div>
           <div className="flex flex-col flex-1">
             <OverLine company={product.brand} title={product.title} />
-            <ColorDots color={product.color} />
+            <ColorDots colors={product.color} />
           </div>
         </div>
         <Text text={product.shortDescription} />
