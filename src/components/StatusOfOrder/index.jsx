@@ -6,20 +6,21 @@ import PropTypes from "prop-types";
 
 
 const StatusOfOrder = ({ isSuccess, onRetry, closeModal }) => {
+
     const statusInfo = isSuccess
         ? {
             borderClass: 'border-border-success',
             textClass: 'text-border-success',
             icon: '#success',
             title: 'We’ve received your order',
-            message: 'You’ll receive a call within 24 hours to finalize your order.',
+            message: 'You’ll receive a call in the next 24 hours and finalise your order with one of our agents.',
         }
         : {
             borderClass: 'border-border-error',
             textClass: 'text-border-error',
             icon: '#error-filled',
             title: 'Your order hasn’t been placed',
-            message: 'Technical error occurred. Please try placing your order again.',
+            message: 'There’s been a technical error. Unfortunately, we haven’t received your order. Close this window and try placing your order again.',
         };
 
     const { borderClass, textClass, icon, title, message } = statusInfo;

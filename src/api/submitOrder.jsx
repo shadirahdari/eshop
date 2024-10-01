@@ -5,6 +5,7 @@ export const submitOrder = async (userInfo, productId) => {
         const response = await axios.post('https://e-shop-backend-ag4c.onrender.com/api/orders', {
             productId,
             userName: userInfo.fullName,
+            userSurname:'Deer',
             userEmail: userInfo.email,
             userPhone: userInfo.phone,
         }, {

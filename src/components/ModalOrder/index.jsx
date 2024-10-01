@@ -11,8 +11,7 @@ Modal.setAppElement('#root');
 
 export function ModalOrder() {
     const modalRef = useRef(null);
-    const { isModalOpen, closeModal } = useContext(ModalContext);
-    const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+    const { isModalOpen, closeModal, isFormSubmitted, setIsFormSubmitted } = useContext(ModalContext);
     const [isSuccess, setIsSuccess] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -32,11 +31,12 @@ export function ModalOrder() {
                         setIsLoading(false);
                     }}
                     setIsLoading={setIsLoading}
+                    isLoading={isLoading}
                 />
             );
         }
 
-        return <StatusOfOrder isSuccess={isSuccess} closeModal={closeModal} onRetry={() => setIsFormSubmitted(false)} />;
+        return <StatusOfOrder isSuccess={isSuccess} closeModal={closeModal} onRetry={() => setIsFormSubmitted(false)} />
     };
   return (
     <Modal
