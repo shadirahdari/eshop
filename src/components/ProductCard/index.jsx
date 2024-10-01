@@ -17,7 +17,6 @@ const imageUrl = (productImg) => {
 
 export const ProductCard = ({ product }) => {
   const { openModal } = useContext(ModalContext);
-
   return (
     <div className="w-[343px] bg-gray-100 border border-gray-300 flex flex-col">
       <div className="flex flex-col gap-6 p-6 flex-1">
@@ -27,7 +26,7 @@ export const ProductCard = ({ product }) => {
           </div>
           <div className="flex flex-col flex-1">
             <OverLine company={product.brand} title={product.title} />
-            <ColorDots />
+            <ColorDots color={product.color} />
           </div>
         </div>
         <Text text={product.shortDescription} />

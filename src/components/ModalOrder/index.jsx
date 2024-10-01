@@ -1,5 +1,5 @@
-import React, { useContext, useRef } from 'react';
-import { Formik, Form } from 'formik';
+import React, { useContext, useRef, useState } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
 import formBackground from '../../assets/images/form_background.png';
 import icons from '../../assets/svg/icons.svg';
@@ -14,9 +14,10 @@ Modal.setAppElement('#root');
 export function ModalOrder() {
   const modalRef = useRef(null);
   const { isModalOpen, closeModal } = useContext(ModalContext);
+  const { userInfo, setUserInfo } = useState({});
 
   const validationSchema = object({
-    name: string()
+    fullName: string()
       .min(2, 'Must be  at least 2 characters')
       .max(30, 'Must be 30 characters or less')
       .required('Fill in the required field'),
@@ -34,11 +35,6 @@ export function ModalOrder() {
   useClickOutside(modalRef, () => closeModal());
 
   const handleClick = () => {
-    closeModal();
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
     closeModal();
   };
 
@@ -79,21 +75,24 @@ export function ModalOrder() {
 
           <Formik
             initialValues={{
-              name: '',
+              fullName: '',
               email: '',
               phone: '',
             }}
             validationSchema={validationSchema}
-            onSubmit={(values) => {
-              console.log(values);
+            onSubmit={(values, actions) => {
+              setTimeout(() => {
+                console.log(values);
+                closeModal();
+              }, 1000);
             }}>
             {({ errors, touched }) => (
               <Form className="flex flex-col gap-4">
                 <TextInput
                   label="Name and Surname"
-                  name="name"
+                  name="fullName"
                   placeholder="Enter your name"
-                  id="name"
+                  id="fullName"
                 />
                 <TextInput
                   label="Email address"
@@ -113,7 +112,8 @@ export function ModalOrder() {
                   size={'form'}
                   className="hover:scale-[1.02] "
                   aria-label="Place your order"
-                  onClick={() => handleSubmit()}>
+                  /* onClick={() => handleSubmit()} */
+                >
                   Place an order
                 </Button>
               </Form>

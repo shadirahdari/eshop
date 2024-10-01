@@ -3,20 +3,21 @@ import PropTypes from 'prop-types';
 import icons from '../../assets/svg/icons.svg';
 import { useClickOutside } from '../../hooks/useClickOutside.jsx';
 import { Button } from '../Button/index.jsx';
+import { useProductContext } from '../../pages/Home/constants.jsx';
 
 function SortBy() {
-  const [selectedOption, setSelectedOption] = useState('Most popular');
+  const { sortType, setSortType } = useProductContext()
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   const options = [
     { value: 'popular', label: 'Most popular' },
-    { value: 'low-to-high', label: 'Price: lowest to highest' },
-    { value: 'high-to-low', label: 'Price: highest to lowest' },
+    { value: 'low-to-high', label: 'Price: Lowest to highest' },
+    { value: 'high-to-low', label: 'Price: Highest to lowest' },
   ];
 
   const handleSelect = (value) => {
-    setSelectedOption(value);
+    setSortType(value);
     setIsOpen(false);
   };
   const handleClick = () => {
@@ -26,19 +27,19 @@ function SortBy() {
   useClickOutside(dropdownRef, () => setIsOpen(false));
   const handleChevronDown = () => {
     const currentIndex = options.findIndex(
-      (option) => option.label === selectedOption,
+      (option) => option.label === sortType,
     );
     if (currentIndex < options.length - 1) {
-      setSelectedOption(options[currentIndex + 1].label);
+      setSortType(options[currentIndex + 1].label);
     }
   };
 
   const handleChevronUp = () => {
     const currentIndex = options.findIndex(
-      (option) => option.label === selectedOption,
+      (option) => option.label === sortType,
     );
     if (currentIndex > 0) {
-      setSelectedOption(options[currentIndex - 1].label);
+      setSortType(options[currentIndex - 1].label);
     }
   };
 
@@ -47,7 +48,7 @@ function SortBy() {
       <Button
         type="button"
         size="mostPopular"
-        className="py-2 px-2 flex justify-center items-center gap-1.5 text-nowrap"
+        className="py-2 px-5 flex justify-center items-center gap-1.5 text-nowrap"
         id="sorting-button"
         aria-expanded="true"
         aria-haspopup="true"
@@ -56,7 +57,7 @@ function SortBy() {
         <svg className="sorter-icon h-4 w-4">
           <use href={icons + '#sorter'} />
         </svg>
-        {selectedOption}
+        {options.find(x => x.value === sortType).label}
       </Button>
       {isOpen && (
         <div
@@ -96,12 +97,11 @@ function SortBy() {
             {options.map((option) => (
               <button
                 key={option.value}
-                className={`${
-                  selectedOption === option.label
-                    ? 'bg-dropdown-option-selected text-white md:bg-inherit md:relative'
-                    : 'text-white'
-                } block text-center text-sm leading-4 font-normal w-full  px-4 py-1 md:text-left`}
-                onClick={() => handleSelect(option.label)}>
+                className={`${sortType === option.value
+                  ? 'bg-dropdown-option-selected text-white md:bg-inherit md:relative'
+                  : 'text-white'
+                  } block text-center text-sm leading-4 font-normal w-full  px-4 py-1 md:text-left`}
+                onClick={() => handleSelect(option.value)}>
                 <span>{option.label}</span>
               </button>
             ))}

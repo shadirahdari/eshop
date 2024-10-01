@@ -21,7 +21,6 @@ function FilterBy() {
 
       <FilterModal
         show={show_filters}
-        update={(values) => console.log(values)}
         close={() => set_show_filters(false)}
       />
     </>
