@@ -13,13 +13,17 @@ import { ModalOrder } from '../../components/ModalOrder/index.jsx';
 function HomePage() {
   const [filters, setFilters] = useState({
     Type: [],
-    Brand: []
+    Brand: [],
+    Color: [],
+    Price: 0
   });
   const [products, setProducts] = useState([]);
+  const [sortType, setSortType] = useState('popular');
+
 
   return (
     <ModalProvider>
-      <ProductsContext.Provider value={{ filters, setFilters, products, setProducts }}>
+      <ProductsContext.Provider value={{ sortType, setSortType, filters, setFilters, products, setProducts }}>
         <main>
           <ModalOrder />
           <div>

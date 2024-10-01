@@ -1,12 +1,11 @@
 import React from 'react';
 
-export const ColorDots = () => {
+export const ColorDots = ({ color = "" }) => {
+
   return (
-    <div className="flex gap-3 mt-7">
-      <div className="w-3 h-3 rounded-full bg-black border border-[#00000054]" />
-      <div className="w-3 h-3 rounded-full bg-[#F0E68C] border border-[#00000054]" />
-      <div className="w-3 h-3 rounded-full bg-[#B0C4DE] border border-[#00000054]" />
-      <div className="w-3 h-3 rounded-full bg-[#EFD9F4] border border-[#00000054]" />
+    <div className="flex gap-2 mt-7 items-center text-sm">
+      <span title={color} style={{ backgroundColor: color }} className={`w-3 h-3 rounded-full border border-[#00000054]`} />
+      {color}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import './style.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 
-export const Checkbox = ({ label, id, name, value, checked, onChange }) => {
+export const Checkbox = ({ label, id, radio = false, name, value, checked, onChange }) => {
   return (
     <div className="flex items-center">
       <input
@@ -17,7 +17,7 @@ export const Checkbox = ({ label, id, name, value, checked, onChange }) => {
       />
       <label htmlFor={id} className="custom-checkbox-wrapper">
         <div
-          className={`custom-checkbox ${checked ? 'checked' : ''}`}
+          className={`custom-checkbox ${checked ? 'checked' : ''} ${radio ? "custom_radio" : ""}`}
         >
           {checked && (
             <svg
