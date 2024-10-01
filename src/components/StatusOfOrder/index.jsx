@@ -37,7 +37,7 @@ const StatusOfOrder = ({ isSuccess, onRetry, closeModal }) => {
 
         </div>
     {!isSuccess && (
-        <Button onClick={onRetry} color="dark" size="form">
+        <Button onClick={onRetry} color="dark" size="filtersClose">
             Fill the form again
         </Button>
     )}
