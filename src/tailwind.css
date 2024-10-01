@@ -29,19 +29,46 @@
   font-display: swap;
 }
 
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
   .button {
     @apply rounded-full ease-in-out;
+  }
+
+  .modal-title {
+    @apply font-bold text-3xl leading-9 lg:leading-tight;
+  }
+
+  .custom-checkbox-wrapper {
+    @apply flex text-zinc-900 mb-4 items-center select-none cursor-pointer;
+  }
+
+  .custom-checkbox {
+    @apply w-5 h-5 mr-3 border-2 border-gray-300 rounded-sm flex justify-center items-center cursor-pointer transition-colors duration-200 ease-in-out ;
+  }
+
+  .custom-checkbox.checked {
+    @apply bg-secondary-dark border-secondary-dark;
+  }
+
+  .custom-checkbox .check-icon {
+    @apply w-4 h-4 fill-white;
+  }
+
+  .custom_radio {
+    @apply rounded-full;
   }
 }
 
 @layer base {
-  }
-
-
   html {
+    @apply font-main;
     font-size-adjust: 0.522;
+   }
   }
+
+

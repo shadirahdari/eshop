@@ -4,18 +4,15 @@ import icons from '../../assets/svg/icons.svg';
 import { useClickOutside } from '../../hooks/useClickOutside.jsx';
 import { Button } from '../Button/index.jsx';
 import { useProductContext } from '../../pages/Home/constants.jsx';
+import SortByOptions from "./SortByOptions.jsx";
+import {useSortContext} from "../../store/sortby-context.jsx";
 
 function SortBy() {
   const { sortType, setSortType } = useProductContext()
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
-
-  const options = [
-    { value: 'popular', label: 'Most popular' },
-    { value: 'low-to-high', label: 'Price: Lowest to highest' },
-    { value: 'high-to-low', label: 'Price: Highest to lowest' },
-  ];
-
+  const { options } = useSortContext();
+  const selectedOption = options.find(x => x.value === sortType);
   const handleSelect = (value) => {
     setSortType(value);
     setIsOpen(false);
@@ -57,7 +54,8 @@ function SortBy() {
         <svg className="sorter-icon h-4 w-4">
           <use href={icons + '#sorter'} />
         </svg>
-        {options.find(x => x.value === sortType).label}
+        {/*{options.find(x => x.value === sortType).label}*/}
+        {selectedOption ? selectedOption.label : 'popular'}
       </Button>
       {isOpen && (
         <div
@@ -94,17 +92,7 @@ function SortBy() {
               disabled>
               Choose...
             </button>
-            {options.map((option) => (
-              <button
-                key={option.value}
-                className={`${sortType === option.value
-                  ? 'bg-dropdown-option-selected text-white md:bg-inherit md:relative'
-                  : 'text-white'
-                  } block text-center text-sm leading-4 font-normal w-full  px-4 py-1 md:text-left`}
-                onClick={() => handleSelect(option.value)}>
-                <span>{option.label}</span>
-              </button>
-            ))}
+            <SortByOptions options={options} handleSelect={handleSelect} sortType={sortType} />
           </div>
         </div>
       )}

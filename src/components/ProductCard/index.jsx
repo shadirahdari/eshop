@@ -17,7 +17,7 @@ const imageUrl = (productImg) => {
 export const ProductCard = ({ product }) => {
   const { openModal } = useContext(ModalContext);
   return (
-    <div className="w-[343px] bg-gray-100 border border-gray-300 flex flex-col">
+    <div className="w-[336px] rounded-md bg-gray-100 border border-gray-300 flex flex-col">
       <div className="flex flex-col gap-6 p-6 flex-1">
         <div className="flex">
           <div className="flex-1 flex justify-center">
@@ -36,10 +36,9 @@ export const ProductCard = ({ product }) => {
             size="order"
             color="dark"
             label="Order now"
-            onClick={() => openModal()}
-          >
+            onClick={() => openModal(product.product_id)} >
             <span>Order</span> now{' '}
-            <svg className="h-4 w-4" aria-hidden="true">
+            <svg className="h-4 w-4" >
               <use href={icons + '#arrow-right'} />
             </svg>
           </Button>
@@ -52,6 +51,7 @@ export const ProductCard = ({ product }) => {
 
 ProductCard.propTypes = {
   product: PropTypes.shape({
+    product_id:PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     shortDescription: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
