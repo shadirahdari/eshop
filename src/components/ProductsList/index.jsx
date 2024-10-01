@@ -54,7 +54,7 @@ export const ProductsList = () => {
   }
 
   return (
-    <div className='mx-5 my-5'>
+    <div className='mx-5 my-5 w-full'>
       {/*  <h1 className='mb-4'>Products</h1> */}
       <div className='flex flex-wrap gap-3'>
         {filteredProducts.map((product) => (
