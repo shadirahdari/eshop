@@ -18,7 +18,11 @@ export const ProductsList = () => {
   const filteredProducts = products.filter(product => {
     const is_type = filters.Type.length === 0 || filters.Type.includes(product.product_type)
     const is_brand = filters.Brand.length === 0 || filters.Brand.includes(product.brand)
-    const is_color = filters.Color.length === 0 || filters.Color.includes(product.color)
+
+
+    const is_color = filters.Color.length === 0 ||
+      product.color.split(",").find(color => filters.Color.includes(color.trim()))
+
 
     const [min, max] = PRICE_RANGE[filters.Price]
 
@@ -51,7 +55,7 @@ export const ProductsList = () => {
 
   return (
     <div className='mx-5 my-5'>
-    {/*  <h1 className='mb-4'>Products</h1> */}
+      {/*  <h1 className='mb-4'>Products</h1> */}
       <div className='flex flex-wrap gap-3'>
         {filteredProducts.map((product) => (
           <ProductCard key={product.product_id} product={product} />
