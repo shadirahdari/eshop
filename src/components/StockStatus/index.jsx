@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const StockStatus = ({ inStock = false }) => {
   return (
-    <div className={`flex items-center justify-center gap-4 w-[343px] h-[40px] py-2 border-t ${inStock ? 'border-t-[#00000029] opacity-100 text-[#02562B]' : 'border-t-[#00000029] opacity-100 text-[#980233]'}`}>
+    <div className={`flex items-center justify-center gap-4 h-[40px] py-2 border-t ${inStock ? 'border-t-[#00000029] opacity-100 text-[#02562B]' : 'border-t-[#00000029] opacity-100 text-[#980233]'}`}>
       <svg
         width="12"
         height="12"

@@ -17,7 +17,7 @@ const imageUrl = (productImg) => {
 export const ProductCard = ({ product }) => {
   const { openModal } = useContext(ModalContext);
   return (
-    <div className="w-[336px] rounded-md bg-gray-100 border border-gray-300 flex flex-col">
+    <div className="w-[328px] h-[348px] rounded-md bg-gray-100 border border-gray-300 flex flex-col">
       <div className="flex flex-col gap-6 p-6 flex-1">
         <div className="flex">
           <div className="flex-1 flex justify-center">
@@ -29,7 +29,7 @@ export const ProductCard = ({ product }) => {
           </div>
         </div>
         <Text text={product.shortDescription} />
-        <div className="flex flex-row w-[295px] h-[48px] gap-6 items-center">
+        <div className="flex flex-row w-fill h-[48px] gap-6 items-center">
           <MonthlyPayment price={product.price} />
           <Button
             className="flex justify-center items-center gap-1.5"
