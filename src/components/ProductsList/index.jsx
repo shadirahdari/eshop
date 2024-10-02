@@ -34,7 +34,7 @@ export const ProductsList = () => {
   filteredProducts.sort(SORT_TYPE[sortType])
 
   useEffect(() => {
-    axios.get('https://e-shop-backend-ag4c.onrender.com/api/products')
+    axios.get('/api/products')
       .then((response) => {
         setProducts(response.data);
         setLoading(false);
