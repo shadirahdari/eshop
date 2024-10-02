@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const submitOrder = async (userInfo, productId) => {
     try {
-        const response = await axios.post('/api/orders', {
+        const response = await axios.post('https://e-shop-backend-ag4c.onrender.com/api/orders', {
             productId,
             userName: userInfo.fullName,
             userSurname:'Deer',
