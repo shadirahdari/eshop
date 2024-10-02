@@ -6,7 +6,7 @@ export const useSortContext = () => useContext(SortContext);
 
 export const SortProvider = ({ children }) => {
     const [options, setOptions] = useState([
-        { value: 'popular', label: 'Most Popular' },
+        { value: 'popular', label: 'Most popular' },
         { value: 'low-to-high', label: 'Price: lowest to highest' },
         { value: 'high-to-low', label: 'Price: highest to lowest' },
     ]);

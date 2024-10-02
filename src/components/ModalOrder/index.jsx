@@ -42,22 +42,22 @@ export function ModalOrder() {
     <Modal
       isOpen={isModalOpen}
       onRequestClose={closeModal}
-      className="relative bg-white w-full relative lg:h-[90vh] lg:max-w-4xl z-10 mx-auto transition-opacity duration-300 ease-in-out opacity-100"
+      className="relative bg-white w-full lg:max-w-4xl z-10 mx-auto transition-opacity duration-300 ease-in-out opacity-100"
       overlayClassName="flex justify-center fixed inset-0 top-0 lg:bg-slate-800 lg:bg-opacity-90 items-center transition-opacity duration-300 ease-in-out "
       role="dialog"
       aria-labelledby="modalTitle"
     >
       <div
-        className="lg:p-0 container h-screen flex justify-center"
+        className="container h-screen lg:h-3/5 flex justify-center"
         ref={modalRef}>
-        <div className="hidden lg:block bg-cover bg-no-repeat lg:h-[90vh]  w-72 overflow-hidden ">
+        <div className="hidden lg:block bg-cover bg-no-repeat w-72 overflow-hidden ">
           <img
             src={formBackground}
             alt="purple form background"
             loading="lazy"
           />
         </div>
-        <div className="flex-1 p-1 lg:px-12 lg:py-2.5">
+        <div className="flex-1 p-4 lg:px-12 lg:py-2.5">
           <FormTitle closeModal={closeModal} />
           {renderContent()}
         </div>

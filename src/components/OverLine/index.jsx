@@ -5,7 +5,7 @@ export const OverLine = ({ company, title }) => {
   return (
     <Fragment>
       <div>{company}</div>
-      <span className="font-bold text-[20px]">{title}</span>
+      <span className="font-bold text-[20px] text-nowrap">{title}</span>
     </Fragment>
   );
 };

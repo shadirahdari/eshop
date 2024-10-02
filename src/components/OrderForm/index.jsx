@@ -14,7 +14,7 @@ const validationSchema = Yup.object({
         .required('Fill in the required field'),
     email: Yup.string().email('Invalid email address').required('Fill in the required field'),
     phone: Yup.string()
-        .matches(/^\+\d{1,3}\d{7,15}$/, 'Phone number should start with + and contain up to 15 digits')
+        .matches(/^\+\d{1,3}\d{7,12}$/, 'Phone number should start with + and contain up to 15 digits')
         .required('Fill in the required field'),
 });
 

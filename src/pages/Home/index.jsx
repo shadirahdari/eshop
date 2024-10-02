@@ -54,11 +54,11 @@ function HomePage() {
               </p>
             </div>
             <SortProvider>
-              <div className="flex justify-between md:justify-start gap-x-5 mt-16 lg:hidden">
+              <div className="flex justify-between md:justify-start gap-4 mt-12 lg:hidden">
                 <FilterBy />
                 <SortBy />
               </div>
-              <div className="flex mt-16 justify-center ">
+              <div className="flex md:mt-3 lg:mt-16 justify-center lg:gap-24 ">
                 <aside className="w-[300px] hidden lg:block">
                   <p className="text-sm font-bold font-medium text-zinc-900 mb-4">Sort By</p>
                   <SortByOptions isDesktop={true} />

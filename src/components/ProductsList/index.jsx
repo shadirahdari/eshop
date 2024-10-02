@@ -54,9 +54,8 @@ export const ProductsList = () => {
   }
 
   return (
-    <div className='mx-5 my-5 w-full'>
-      {/*  <h1 className='mb-4'>Products</h1> */}
-      <div className='flex flex-wrap gap-3'>
+    <div className='mx-5 my-5 w-full md:mx-0 lg:my-0'>
+      <div className='flex flex-wrap gap-6 md:gap-5 lg:gap-4 2xl:gap-12'>
         {filteredProducts.map((product) => (
           <ProductCard key={product.product_id} product={product} />
         ))}

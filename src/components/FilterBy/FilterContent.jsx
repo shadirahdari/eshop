@@ -37,11 +37,11 @@ return (
         <FilterGroups title={"Type"} list={['Mobile phones', 'Accessories']} formik={formik} />
         <FilterGroups title={"Brand"} list={['Samsung', 'Xiaomi', 'Apple', 'OnePlus', 'Sony']} formik={formik}/>
         <FilterGroups radio={true} title={"Price"}
-                      list={['Any', '0 - 100 Eur/month', '100 - 500 Eur/month', '500 - 1000 Eur/month', '1000 - 1500 Eur/month', '15000 - 2000 Eur/month']}
+                      list={['Any', '0 - 100 Eur', '100 - 500 Eur', '500 - 1000 Eur', '1000 - 1500 Eur', '1500 - 2000 Eur']}
                       formik={formik} />
-        <FilterGroups title={"Color"} list={['Black', 'Yellow', 'Green', 'Silver', 'Rose gold', 'Red', 'White', 'Blue', 'Pink']}
+        <FilterGroups title={"Color"} list={['Black', 'Yellow', 'Green', 'Silver', 'Red', 'White', 'Blue', 'Pink']}
                       formik={formik} />
-        <div className=' p-6 flex gap-4 lg:hidden'>
+        <div className='flex gap-4 lg:hidden'>
             <Button color="brightOutlined" size="filtersClose" onClick={close} >
                 Close
             </Button>

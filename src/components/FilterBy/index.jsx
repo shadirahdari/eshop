@@ -12,7 +12,7 @@ function FilterBy() {
         onClick={() => set_show_filters(true)}
         color="brightOutlined"
         size="filter"
-        className="py-2 flex justify-center items-center gap-1.5">
+        className="py-2 flex justify-center items-center gap-1.5 text-nowrap">
         <svg className="filter-icon h-4 w-4" aria-hidden="true">
           <use href={icons + '#filter'} />
         </svg>

@@ -9,6 +9,7 @@ export const Button = ({
   onClick,
   children,
   className = '',
+  disabled = false,
 }) => {
   const btnSizes = {
     filter: 'w-full h-10 md:w-32',
@@ -21,7 +22,7 @@ export const Button = ({
   };
 
   const btnColors = {
-    brightOutlined: `${className} font-bold font-medium border border-secondary-bright text-secondary-bright hover:bg-secondary-light  focus:bg-secondary-light`,
+    brightOutlined: `${className} font-bold border border-secondary-bright text-secondary-bright hover:bg-secondary-light  focus:bg-secondary-light`,
     regular: ` ${className} py-4 text-white bg-main hover:border-main-regular `,
     dark: `${className} text-white bg-secondary-dark border-secondary-dark`,
     darkOutlined:
@@ -30,12 +31,14 @@ export const Button = ({
 
   const btnSizeClasses = btnSizes[size];
   const btnColorClasses = btnColors[color];
-
+const disabledStyle = disabled ? 'opacity-50' : 'opacity-100';
   return (
     <button
-      className={`button font-medium text-base ${className} ${btnSizeClasses} ${btnColorClasses} focus:border-1`}
+      className={`button font-medium text-base ${className} ${disabledStyle} ${btnSizeClasses} ${btnColorClasses} focus:border-1`}
       type={type}
-      onClick={onClick}>
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );
@@ -48,4 +51,5 @@ Button.propTypes = {
   children: PropTypes.node,
   onClick: PropTypes.func,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
 };
